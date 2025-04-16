@@ -1,0 +1,52 @@
+{
+  "name": "sort",
+  "version": "0.0.0",
+  "scripts": {
+    "start:en": "ng serve --configuration=dev-i18n-en",
+    "start:zh": "ng serve --configuration=dev-i18n-zh",
+    "build": "ng build",
+    "i18n": "ng extract-i18n",
+    "watch": "webpack --watch",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/localize": "^18.2.13",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "@primeng/themes": "18.0.2",
+    "primeng": "18.0.2",
+    "rxjs": "~7.8.0",
+    "tailwind": "^4.0.0",
+    "tailwindcss-primeui": "^0.6.1",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "18",
+    "@angular-devkit/build-angular": "^18.2.18",
+    "@angular/cli": "^18.2.18",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "~5.1.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "~5.5.2"
+  }
+}

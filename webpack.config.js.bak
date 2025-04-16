@@ -1,0 +1,78 @@
+const path = require('path');
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+    devtool: 'source-map',
+    devServer: {
+        compress: true,
+        // static: {
+        //     directory: path.resolve(__dirname, 'dist')
+        // },
+        contentBase: './dist',
+        port: 4200,
+    },
+    entry: './src/main.ts',
+    mode: 'development',
+    module: {
+        rules: [
+            {
+                test: /\.(ico|png|svg|webp)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[hash].[ext]',
+                        outputPath: 'res/img/'
+                    }
+                }
+            },
+            {
+                test: /\.html$/,
+                use: 'html-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                            modules: true
+                        }
+                    },
+                    'sass-loader',
+                    'postcss-loader'
+                ],
+            },
+            {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+        ],
+    },
+    resolve: {
+        extensions: ['.ts', '.js'],
+        modules: [
+            path.resolve(__dirname, 'src'),
+            path.resolve(__dirname, 'res'),
+            path.resolve(__dirname, 'node_modules')
+        ]
+    },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[hash].js',
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: './dist/style/styles.css'
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
+        }),
+        new CleanWebpackPlugin()
+    ]
+}
