@@ -119,12 +119,12 @@
                         "dev-i18n-en": {
                             "buildTarget": "sort:build:dev-i18n-en",
                             "servePath": "/sort/web/en-US/",
-                            "port": 8585
+                            "port": 16850
                         },
                         "dev-i18n-zh": {
                             "buildTarget": "sort:build:dev-i18n-zh",
                             "servePath": "/sort/web/zh-CN/",
-                            "port": 8888
+                            "port": 16860
                         }
                     }
                 },
@@ -137,30 +137,13 @@
                         "outFile": "messages.i18n.json"
                     }
                 },
-                "test": {
-                    "builder": "@angular-builders/custom-webpack:karma",
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
                     "options": {
-                        "customWebpackConfig": {
-                            "path": "webpack.config.js",
-                            "mergeRules": {
-                                "plugins": "prepend"
-                            },
-                            "replaceDuplicatePlugins": true
-                        },
-                        "polyfills": [
-                            "zone.js",
-                            "zone.js/testing"
-                        ],
-                        "tsConfig": "tsconfig.spec.json",
-                        "inlineStyleLanguage": "scss",
-                        "assets": [
-                            "src/assets",
-                            "src/assets/favicon.ico"
-                        ],
-                        "styles": [
-                            "src/styles.scss"
-                        ],
-                        "scripts": []
+                        "lintFilePatterns": [
+                            "src/**/*.ts",
+                            "src/**/*.html"
+                        ]
                     }
                 }
             },

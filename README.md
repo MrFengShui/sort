@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## 测试配置参数（package.json）
+
+"jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.ts"],
+    "testPpathIgnorePatterns": [
+        "<rootDir>/node_modules/",
+        "<rootDir>/dist/"
+    ],
+    "globals": {
+        "ts-jest": {
+            "tsConfig": "<rootDir>/tsconfig.spec.json",
+            "stringifyContentPathRegex": "\\.html$"
+        }
+    },
+    "verbose": true
+},
