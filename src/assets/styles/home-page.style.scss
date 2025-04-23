@@ -1,0 +1,21 @@
+.ngx-home-page {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+
+    .home-page-head, .home-page-foot {
+        height: 5rem;
+
+        .logo-container {
+            height: 3rem;
+
+            .logo-image {
+                height: 100%;
+
+                &:hover {
+                    filter: contrast(125%);
+                }
+            }
+        }
+    }
+}

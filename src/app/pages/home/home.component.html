@@ -1,0 +1,55 @@
+<p-toolbar styleClass="home-page-head">
+    <ng-template #start>
+        <a [href]="logoHrefLink" class="logo-container">
+            <img src="assets/images/angular_wordmark_gradient.png" alt="logo" class="logo-image">
+        </a>
+    </ng-template>
+    <ng-template #end>
+        <div class="flex gap-3">
+            <a pButton severity="contrast" size="small" rounded text pTooltip="GitHub" [showDelay]="1000"
+                [hideDelay]="1000" tooltipPosition="bottom">
+                <i class="pi pi-github text-2xl"></i>
+            </a>
+            <p-buttongroup>
+                <p-button [disabled]="localeOption === option.value" size="small" severity="contrast" outlined
+                    (onClick)="handleLocaleSelectEvent(option.value)" *ngFor="let option of localeOptions">
+                    <div class="flex align-items-center gap-2">
+                        <span>{{ option.label }}</span>
+                        <i class="pi pi-language" *ngIf="localeOption === option.value"></i>
+                    </div>
+                </p-button>
+            </p-buttongroup>
+            <p-togglebutton [ngModel]="styleConfig.darkMode" size="small" [onLabel]="I18N_HEAD_MODE_ON"
+                [offLabel]="I18N_HEAD_MODE_OFF" [onIcon]="'pi pi-moon'" [offIcon]="'pi pi-sun'"
+                (onChange)="listenDarkModeChange($event.checked)" />
+        </div>
+    </ng-template>
+</p-toolbar>
+<p-toolbar styleClass="home-page-foot">
+    <ng-template #start>
+        <div class="flex align-items-center gap-2">
+            <span class="logo-container">
+                <img src="assets/images/angular_icon_gradient.gif" alt="logo" class="logo-image">
+            </span>
+            <div class="flex flex-column">
+                <span class="text-xs font-bold">{{ I18N_FOOT_COPYRIGHT }}</span>
+                <span class="text-xs font-bold">{{ I18N_FOOT_TECHNIQUE }}</span>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #center>
+        <span class="text-xl font-bold">{{ datetime$ | async }}</span>
+    </ng-template>
+    <ng-template #end>
+        <div class="flex gap-3">
+            <a pButton severity="contrast" size="small" rounded text pTooltip="GitHub" [showDelay]="1000"
+                [hideDelay]="1000" tooltipPosition="bottom">
+                <i class="pi pi-github text-2xl"></i>
+            </a>
+            <a pButton severity="contrast" size="small" rounded text pTooltip="GitHub" [showDelay]="1000"
+                [hideDelay]="1000" tooltipPosition="bottom">
+                <i class="pi pi-question-circle text-2xl"></i>
+            </a>
+        </div>
+    </ng-template>
+</p-toolbar>

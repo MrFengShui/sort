@@ -1,8 +1,16 @@
+/// <reference types="@angular/localize" />
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
+<<<<<<< Updated upstream
 platformBrowserDynamic().bootstrapModule(AppModule, {
   ngZoneEventCoalescing: true
 })
   .catch(err => console.error(err));
+=======
+platformBrowserDynamic()
+    .bootstrapModule(AppModule)
+    .catch(err => console.error(err));
+>>>>>>> Stashed changes

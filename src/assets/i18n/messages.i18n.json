@@ -1,0 +1,10 @@
+{
+    "locale": "en-US",
+    "translations": {
+        "home.page.foot.copyright": "Copyright All Reserved",
+        "home.page.head.locale.en": "English",
+        "home.page.head.locale.zh": "Chinese",
+        "home.page.head.mode.off": "Light Mode",
+        "home.page.head.mode.on": "Dark Mode"
+    }
+}

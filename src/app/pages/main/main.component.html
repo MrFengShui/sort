@@ -1,0 +1,9 @@
+<p-toolbar>
+    <ng-template #start>
+        <p-button icon="pi pi-plus" class="mr-2" text severity="secondary" />
+    </ng-template>
+    <ng-template #end>
+        <p-togglebutton [ngModel]="styleConfig.darkMode" size="small" onLabel="夜间模式" offLabel="白昼模式" [onIcon]="'pi pi-moon'" [offIcon]="'pi pi-sun'" (onChange)="listenDarkModeChange($event.checked)"/>
+    </ng-template>
+</p-toolbar>
+<router-outlet></router-outlet>

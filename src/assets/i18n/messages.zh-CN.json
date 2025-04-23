@@ -1,4 +1,11 @@
 {
-  "locale": "zh-CN",
-  "translations": {}
+    "locale": "zh-CN",
+    "translations": {
+        "home.page.foot.copyright": "版权所有",
+        "home.page.foot.technique": "技术支持（Angular和PrimeNG）",
+        "home.page.head.locale.en": "英文",
+        "home.page.head.locale.zh": "中文",
+        "home.page.head.mode.on": "夜间模式",
+        "home.page.head.mode.off": "白昼模式"
+    }
 }

@@ -41,6 +41,9 @@
                         },
                         "i18nMissingTranslation": "error",
                         "localize": true,
+                        "allowedCommonJsDependencies": [
+                            "moment"
+                        ],
                         "baseHref": "/sort/web/",
                         "outputPath": "dist/sort",
                         "index": "src/index.html",

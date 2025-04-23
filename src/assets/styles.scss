@@ -1,5 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< Updated upstream
+=======
+@import "tailwindcss";
+// @import "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+@import url(styles/home-page.style.scss);
+@import url(styles/main-page.style.scss);
+
+>>>>>>> Stashed changes
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
+
+    a {
+        cursor: pointer;
+    }
 }
+
