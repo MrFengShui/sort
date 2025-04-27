@@ -1,14 +1,8 @@
 import { Component, Inject, LOCALE_ID, NgZone, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { usePreset } from '@primeng/themes';
 import { filter, Subscription } from 'rxjs';
 
-import Aura from '@primeng/themes/aura';
-import Lara from '@primeng/themes/lara';
-import Material from '@primeng/themes/material';
-import Nora from '@primeng/themes/nora';
-
-import { AppStyleConfigModel, AppStyleName } from './models/style.model';
+import { AppStyleColorName, AppStyleConfigModel, AppStyleThemeName } from './models/style.model';
 import { AppLocaleName } from './models/locale.model';
 
 import { addClassSelectors, removeClassSelectors } from './share/selector.utils';
@@ -21,19 +15,16 @@ import { AppStyleConfigLoadAction, AppStyleConfigLoadDoneAction, AppStyleConfigS
 import { AppLocaleFeatureSelector } from './store/locale.selector';
 import { AppLocaleConfigLoadAction, AppLocaleConfigLoadDoneAction, AppLocaleConfigSaveAction, AppLocaleConfigSaveDoneAction } from './store/locale.action';
 
+import { selectAuraPreset } from './theme/aura.theme';
+import { selectLaraPreset } from './theme/lara.theme';
+import { selectMaterialPreset } from './theme/material.theme';
+import { selectNoraPreset } from './theme/nora.theme';
+
 @Component({
-<<<<<<< Updated upstream
-  selector: 'ngx-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'ngx-entry',
+    template: `<router-outlet></router-outlet>`
 })
-export class AppComponent {
-  title = 'sort';
-=======
-    selector: 'ngx-root',
-    templateUrl: './app.component.html'
-})
-export class AppComponent implements OnInit, OnDestroy, AppLocaleConfigListener, AppStyleConfigListener {
+export class AppEntryComponent implements OnInit, OnDestroy, AppLocaleConfigListener, AppStyleConfigListener {
 
     private localeConfigStore$: Subscription = Subscription.EMPTY;
     private styleConfigStore$: Subscription = Subscription.EMPTY;
@@ -91,7 +82,7 @@ export class AppComponent implements OnInit, OnDestroy, AppLocaleConfigListener,
                         if (state.action === AppStyleConfigLoadDoneAction.type) {
                             const model: AppStyleConfigModel = state.result as AppStyleConfigModel;
                             this.selectDarkMode(model.darkMode);
-                            this.selectAndLoadTheme(model.theme);
+                            this.selectColorAndTheme(model.color, model.theme);
 
                             if (state.default)
                                 this._store.dispatch(AppStyleConfigSaveAction(model));
@@ -106,18 +97,19 @@ export class AppComponent implements OnInit, OnDestroy, AppLocaleConfigListener,
     private selectDarkMode(flag: boolean): void {
         const element = document.documentElement;
 
-        if (Boolean(flag).valueOf())
-            addClassSelectors(element, this._renderer, 'ngx-dark-mode');
+        if (Boolean(flag))
+            addClassSelectors(element, this._renderer, 'p-dark-mode');
         else
-            removeClassSelectors(element, this._renderer, 'ngx-dark-mode');
+            removeClassSelectors(element, this._renderer, 'p-dark-mode');
     }
 
-    private selectAndLoadTheme(type: AppStyleName | undefined): void {
-        switch (type) {
-            case 'aura': usePreset(Aura); break;
-            case 'lara': usePreset(Lara); break;
-            case 'material': usePreset(Material); break;
-            case 'nora': usePreset(Nora); break;
+    private selectColorAndTheme(color: AppStyleColorName, theme: AppStyleThemeName): void {
+        switch (theme) {
+            default:
+            case 'aura': selectAuraPreset(color); break;
+            case 'lara': selectLaraPreset(color); break;
+            case 'material': selectMaterialPreset(color); break;
+            case 'nora': selectNoraPreset(color); break;
         }
     }
 
@@ -127,5 +119,4 @@ export class AppComponent implements OnInit, OnDestroy, AppLocaleConfigListener,
         if (locale === 'zh-CN') updateLocaleToChinese();
     }
 
->>>>>>> Stashed changes
 }

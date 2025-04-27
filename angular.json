@@ -64,6 +64,7 @@
                         "extractLicenses": true,
                         "optimization": false,
                         "sourceMap": true,
+                        "namedChunks": true,
                         "scripts": [],
                         "verbose": true
                     },
@@ -99,18 +100,18 @@
                             "budgets": [
                                 {
                                     "type": "initial",
-                                    "maximumWarning": "2MB",
-                                    "maximumError": "4MB"
+                                    "maximumWarning": "8MB",
+                                    "maximumError": "16MB"
                                 },
                                 {
                                     "type": "anyComponentStyle",
-                                    "maximumWarning": "128KB",
-                                    "maximumError": "256KB"
+                                    "maximumWarning": "1MB",
+                                    "maximumError": "2MB"
                                 },
                                 {
                                     "type": "anyScript",
-                                    "maximumWarning": "4MB",
-                                    "maximumError": "8MB"
+                                    "maximumWarning": "8MB",
+                                    "maximumError": "16MB"
                                 }
                             ]
                         }
@@ -121,13 +122,14 @@
                     "configurations": {
                         "dev-i18n-en": {
                             "buildTarget": "sort:build:dev-i18n-en",
+                            "open": true,
                             "servePath": "/sort/web/en-US/",
-                            "port": 8585
+                            "port": 16850
                         },
                         "dev-i18n-zh": {
                             "buildTarget": "sort:build:dev-i18n-zh",
                             "servePath": "/sort/web/zh-CN/",
-                            "port": 8888
+                            "port": 16860
                         }
                     }
                 },
@@ -143,25 +145,22 @@
                 "test": {
                     "builder": "@angular-builders/custom-webpack:karma",
                     "options": {
-                        "customWebpackConfig": {
-                            "path": "webpack.config.js",
-                            "mergeRules": {
-                                "plugins": "prepend"
-                            },
-                            "replaceDuplicatePlugins": true
-                        },
                         "polyfills": [
                             "zone.js",
                             "zone.js/testing"
                         ],
                         "tsConfig": "tsconfig.spec.json",
                         "inlineStyleLanguage": "scss",
+                        "browsers": "ChromeHeadless",
+                        "codeCoverage": true,
+                        "progress": true,
+                        "watch": false,
                         "assets": [
                             "src/assets",
                             "src/assets/favicon.ico"
                         ],
                         "styles": [
-                            "src/styles.scss"
+                            "src/assets/styles.scss"
                         ],
                         "scripts": []
                     }

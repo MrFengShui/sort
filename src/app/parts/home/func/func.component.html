@@ -1,0 +1,15 @@
+<div class="flex flex-column gap-6">
+    <h1 class="text-center text-4xl font-bold">{{ I18N_TITLE }}</h1>
+    <h3 class="text-center text-xl text-color-secondary font-medium font-italic">{{ I18N_SUBTITLE }}</h3>
+    <div class="flex justify-content-around gap-6">
+        <p-image src="assets/images/image-006.webp" alt="assets/images/image-006.webp" loading="lazy" />
+        <p-image src="assets/images/image-008.webp" alt="assets/images/image-007.webp" loading="lazy" />
+    </div>
+    <div class="grid">
+        <div class="{{ last ? 'col' : 'col-2' }}" *ngFor="let item of list; last as last">
+            <p-button [label]="item.title" [outlined]="!item.isHover" [severity]="last ? 'primary' : 'secondary'"
+                size="large" styleClass="w-full" (mouseover)="item.isHover = true"
+                (mouseleave)="item.isHover = false"></p-button>
+        </div>
+    </div>
+</div>

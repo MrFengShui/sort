@@ -1,0 +1,21 @@
+<div class="flex flex-column gap-6">
+    <h1 class="text-center text-4xl font-bold">{{ I18N_TITLE }}</h1>
+    <h3 class="text-center text-xl text-color-secondary font-medium font-italic">{{ I18N_SUBTITLE }}</h3>
+    <p-carousel [value]="list" [autoplayInterval]="5000" [circular]="list.length > 2" [numScroll]="2" [numVisible]="2"
+        [showNavigators]="false">
+        <ng-template let-item #item>
+            <p-card styleClass="h-full m-3">
+                <ng-template pTemplate="header">
+                    <p-image [src]="item.media.mediaSrc" alt="item.media.mediaAlt" loading="lazy"></p-image>
+                </ng-template>
+                <ng-template pTemplate="title">{{ item.title }}</ng-template>
+                <ng-template pTemplate="subtitle">{{ item.subtitle }}</ng-template>
+                <p><span *ngFor="let content of item.contents">{{ content }}</span></p>
+            </p-card>
+        </ng-template>
+    </p-carousel>
+    <div class="flex justify-content-center">
+        <p-button label="Get Started" rounded size="large" [outlined]="!isHover" class="w-3" styleClass="w-full"
+            (click)="handleGetStartedEvent()" (mouseover)="isHover = true" (mouseleave)="isHover = false"></p-button>
+    </div>
+</div>

@@ -1,14 +1,14 @@
 import { Routes } from "@angular/router";
 
 import { AppErrorPageComponent } from "../pages/error/error.component";
-import { AppHomePageComponent } from "../pages/home/home.component";
+import { NGXHomePageComponent } from "../pages/home/home.component";
 import { AppMainPageComponent } from "../pages/main/main.component";
 import { AppDashboardWidgetComponent } from "../widgets/dashboard/dashboard.component";
 import { AppWorkspaceWidgetComponent } from "../widgets/workspace/workspace.component";
 
 export const _ROUTES_: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: AppHomePageComponent, title: '' },
+    { path: 'home', component: NGXHomePageComponent, title: '' },
     {
         path: 'main', component: AppMainPageComponent, title: '',
         children: [

@@ -2,12 +2,12 @@ import { Component, NgZone, OnDestroy, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { filter, Subscription } from "rxjs";
 
-import { AppStyleFeatureSelector } from "../../store/style.selector";
-import { AppStyleConfigLoadDoneAction, AppStyleConfigSaveAction } from "../../store/style.action";
-
 import { AppStyleConfigModel } from "../../models/style.model";
 
 import { AppStyleConfigListener } from "../../interfaces/config.interface";
+
+import { AppStyleFeatureSelector } from "../../store/style.selector";
+import { AppStyleConfigLoadDoneAction, AppStyleConfigSaveAction } from "../../store/style.action";
 
 @Component({
     selector: 'ngx-main-page',
@@ -15,7 +15,7 @@ import { AppStyleConfigListener } from "../../interfaces/config.interface";
 })
 export class AppMainPageComponent implements OnInit, OnDestroy, AppStyleConfigListener {
 
-    protected styleConfig: AppStyleConfigModel = { color: undefined, darkMode: false, theme: undefined };
+    protected styleConfig: AppStyleConfigModel | undefined;
 
     private theme$: Subscription = Subscription.EMPTY;
 
@@ -40,19 +40,22 @@ export class AppMainPageComponent implements OnInit, OnDestroy, AppStyleConfigLi
                 .pipe(filter(state => state.action === AppStyleConfigLoadDoneAction.type))
                 .subscribe(state =>
                     this._zone.run(() => {
-                        const model: AppStyleConfigModel = state.result as AppStyleConfigModel;
-                        this.styleConfig.color = model.color;
-                        this.styleConfig.darkMode = model.darkMode;
-                        this.styleConfig.theme = model.theme;
+                        if (this.styleConfig) {
+                            const model: AppStyleConfigModel = state.result as AppStyleConfigModel;
+                            this.styleConfig.color = model.color;
+                            this.styleConfig.darkMode = model.darkMode;
+                            this.styleConfig.theme = model.theme;
+                        }
                     }));
         });
     }
 
     protected listenDarkModeChange(flag: boolean | undefined): void {
-        this._store.dispatch(AppStyleConfigSaveAction({
-            ...this.styleConfig,
-            darkMode: Boolean(flag)
-        }));
+        if (this.styleConfig)
+            this._store.dispatch(AppStyleConfigSaveAction({
+                ...this.styleConfig,
+                darkMode: Boolean(flag)
+            }));
     }
 
 }

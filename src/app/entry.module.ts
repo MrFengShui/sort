@@ -1,22 +1,6 @@
 import { isDevMode, NgModule, provideZoneChangeDetection } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< Updated upstream
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-=======
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PreloadAllModules, provideRouter, RouterModule, withInMemoryScrolling, withPreloading, withRouterConfig } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
@@ -29,10 +13,10 @@ import { _ROUTES_ } from './routes/app.routing';
 
 import { AppPagesModule } from './modules/pages.module';
 
-import { AppComponent } from './app.component';
+import { AppEntryComponent } from './entry.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppEntryComponent],
     imports: [
         BrowserModule,
         RouterModule,
@@ -75,13 +59,12 @@ import { AppComponent } from './app.component';
         providePrimeNG({
             theme: {
                 options: {
-                    darkModeSelector: '.ngx-dark-mode',
-                    prefix: 'ngx'
+                    darkModeSelector: '.p-dark-mode',
+                    prefix: 'p'
                 }
             }
         })
     ],
-    bootstrap: [AppComponent]
->>>>>>> Stashed changes
+    bootstrap: [AppEntryComponent]
 })
-export class AppModule { }
+export class AppEntryModule { }

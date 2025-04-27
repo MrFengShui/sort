@@ -1,9 +1,10 @@
-export type AppStyleName = 'aura' | 'material' | 'lara' | 'nora';
+export type AppStyleColorName = 'amber' | 'emerald' | 'indigo' | 'orange' | 'rose' | 'sky' | 'violet';
+export type AppStyleThemeName = 'aura' | 'material' | 'lara' | 'nora';
 
 export interface AppStyleConfigModel {
 
-    color: any;
+    color: AppStyleColorName;
     darkMode: boolean;
-    theme: AppStyleName | undefined;
+    theme: AppStyleThemeName;
 
 }

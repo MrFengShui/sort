@@ -11,7 +11,7 @@ import { AppStyleConfigModel } from "../models/style.model";
 @Injectable()
 export class AppStyleConfigEffect {
 
-    private readonly APP_STYLE_DEFAULT_CONFIG: AppStyleConfigModel = { color: '', darkMode: false, theme: 'nora' };
+    private readonly APP_STYLE_DEFAULT_CONFIG: AppStyleConfigModel = { color: 'indigo', darkMode: false, theme: 'lara' };
 
     load$ = createEffect(() =>
         this._actions.pipe(

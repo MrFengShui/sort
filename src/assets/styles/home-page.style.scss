@@ -1,7 +1,15 @@
 .ngx-home-page {
     display: flex;
-    flex-direction: column;
-    width: 100vw;
+
+    .home-page-scroll-panel {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .home-page-scroll-top-button {
+        bottom: 6rem;
+        right: 3rem;
+    }
 
     .home-page-head, .home-page-foot {
         height: 5rem;
@@ -16,6 +24,12 @@
                     filter: contrast(125%);
                 }
             }
+        }
+    }
+
+    .ngx-home-func-part, .ngx-home-intro-part, .ngx-home-tech-part {
+        & > div {
+            max-width: min(75%, 1920px);
         }
     }
 }

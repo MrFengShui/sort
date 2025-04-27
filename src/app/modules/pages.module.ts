@@ -5,10 +5,11 @@ import { RouterModule } from "@angular/router";
 import { provideEffects } from "@ngrx/effects";
 import { provideStore, StoreModule } from "@ngrx/store";
 
+import { AppPartModule } from "./parts.module";
 import { AppShareModule } from "./share.module";
 
 import { AppErrorPageComponent } from "../pages/error/error.component";
-import { AppHomePageComponent } from "../pages/home/home.component";
+import { NGXHomePageComponent } from "../pages/home/home.component";
 import { AppMainPageComponent } from "../pages/main/main.component";
 
 import { AppLocaleConfigEffect } from "../store/locale.effect";
@@ -22,7 +23,7 @@ import { APP_STYLE_FEATURE_KEY } from "../store/style.selector";
 @NgModule({
     declarations: [
         AppErrorPageComponent,
-        AppHomePageComponent,
+        NGXHomePageComponent,
         AppMainPageComponent
     ],
     imports: [
@@ -32,11 +33,12 @@ import { APP_STYLE_FEATURE_KEY } from "../store/style.selector";
         StoreModule.forFeature(APP_LOCALE_FEATURE_KEY, { 'feature': AppLocaleConfigReducer }),
         StoreModule.forFeature(APP_STYLE_FEATURE_KEY, { 'feature': AppStyleConfigReducer }),
 
+        AppPartModule,
         AppShareModule
     ],
     exports: [
         AppErrorPageComponent,
-        AppHomePageComponent,
+        NGXHomePageComponent,
         AppMainPageComponent
     ],
     providers: [

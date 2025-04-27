@@ -1,0 +1,15 @@
+<div class="flex flex-column gap-6">
+    <h1 class="text-center text-4xl font-bold">{{ I18N_TITLE }}</h1>
+    <h3 class="text-center text-xl text-color-secondary font-medium font-italic">{{ I18N_SUBTITLE }}</h3>
+    <div class="grid">
+        <div class="col-4" *ngFor="let item of list">
+            <p-card styleClass="h-full">
+                <ng-template pTemplate="title">{{ item.title }}</ng-template>
+                <ng-template pTemplate="subtitle">{{ item.subtitle }}</ng-template>
+                <p>
+                    <span *ngFor="let content of item.contents">{{ content }}</span>
+                </p>
+            </p-card>
+        </div>
+    </div>
+</div>
