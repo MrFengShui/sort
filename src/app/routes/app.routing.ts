@@ -2,7 +2,7 @@ import { Routes } from "@angular/router";
 
 import { AppErrorPageComponent } from "../pages/error/error.component";
 import { NGXHomePageComponent } from "../pages/home/home.component";
-import { AppMainPageComponent } from "../pages/main/main.component";
+import { NGXMainPageComponent } from "../pages/main/main.component";
 import { AppDashboardWidgetComponent } from "../widgets/dashboard/dashboard.component";
 import { AppWorkspaceWidgetComponent } from "../widgets/workspace/workspace.component";
 
@@ -10,7 +10,7 @@ export const _ROUTES_: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: NGXHomePageComponent, title: '' },
     {
-        path: 'main', component: AppMainPageComponent, title: '',
+        path: 'main', component: NGXMainPageComponent, title: '',
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: AppDashboardWidgetComponent, title: '' },

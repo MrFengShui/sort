@@ -2,7 +2,7 @@ import { definePreset, usePreset } from '@primeng/themes';
 
 import Material from '@primeng/themes/material';
 
-import { AppStyleColorName } from '../models/style.model';
+import { StyleColorName } from '../models/style.model';
 
 const MaterialAmberPreset = definePreset(Material, {
     semantic: {
@@ -1068,7 +1068,7 @@ const MaterialVioletPreset = definePreset(Material, {
     }
 });
 
-export const selectMaterialPreset = (name: AppStyleColorName): void => {
+export const selectMaterialPreset = (name: StyleColorName): void => {
     switch (name) {
         case 'amber': usePreset(MaterialAmberPreset); break;
         case 'emerald': usePreset(MaterialEmeraldPreset); break;

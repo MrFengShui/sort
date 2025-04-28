@@ -10,14 +10,14 @@ import { AppLocaleConfigListener, AppStyleConfigListener } from "../../interface
 import { addClassSelectors } from "../../share/selector.utils";
 import { assignHrefLink, APP_URL_HASH } from "../../share/location.utils";
 
-import { AppStyleColorName, AppStyleConfigModel, AppStyleThemeName } from "../../models/style.model";
+import { StyleColorName, StyleConfigModel, StyleThemeName } from "../../models/style.model";
 import { SelectorOptionModel } from "../../models/option.model";
-import { AppLocaleConfigModel, AppLocaleName } from "../../models/locale.model";
+import { LocaleConfigModel, LocaleName } from "../../models/locale.model";
 
-import { AppStyleConfigLoadDoneAction, AppStyleConfigSaveAction } from "../../store/style.action";
-import { AppStyleFeatureSelector } from "../../store/style.selector";
-import { AppLocaleFeatureSelector } from "../../store/locale.selector";
-import { AppLocaleConfigLoadDoneAction } from "../../store/locale.action";
+import { NGXStyleConfigLoadDoneAction, NGXStyleConfigSaveAction } from "../../store/style.action";
+import { NGXStyleFeatureSelector } from "../../store/style.selector";
+import { NGXLocaleFeatureSelector } from "../../store/locale.selector";
+import { NGXLocaleConfigLoadDoneAction } from "../../store/locale.action";
 
 @Component({
     selector: 'ngx-home-page',
@@ -53,12 +53,12 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
     protected readonly primengHrefLink: string = 'https://primeng.org/';
 
     protected logoHrefLink: string = '';
-    protected localeOption: AppLocaleName | string = '';
-    protected localeOptions: SelectorOptionModel<AppLocaleName | string>[] = [
+    protected localeOption: LocaleName | string = '';
+    protected localeOptions: SelectorOptionModel<LocaleName | string>[] = [
         { label: this.I18N_HEAD_LOCALE_EN, value: 'en-US' },
         { label: this.I18N_HEAD_LOCALE_ZH, value: 'zh-CN' }
     ];
-    protected styleColorOptions: SelectorOptionModel<AppStyleColorName>[] = [
+    protected styleColorOptions: SelectorOptionModel<StyleColorName>[] = [
         { label: this.I18N_HEAD_STYLE_COLOR_AMBER, value: 'amber' },
         { label: this.I18N_HEAD_STYLE_COLOR_EMERALD, value: 'emerald' },
         { label: this.I18N_HEAD_STYLE_COLOR_INDIGO, value: 'indigo' },
@@ -67,14 +67,14 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
         { label: this.I18N_HEAD_STYLE_COLOR_SKY, value: 'sky' },
         { label: this.I18N_HEAD_STYLE_COLOR_VIOLET, value: 'violet' }
     ];
-    protected styleThemeOptions: SelectorOptionModel<AppStyleThemeName>[] = [
+    protected styleThemeOptions: SelectorOptionModel<StyleThemeName>[] = [
         { label: this.I18N_HEAD_STYLE_THEME_AURA, value: 'aura' },
         { label: this.I18N_HEAD_STYLE_THEME_LARA, value: 'lara' },
         { label: this.I18N_HEAD_STYLE_THEME_MATERIAL, value: 'material' },
         { label: this.I18N_HEAD_STYLE_THEME_NORA, value: 'nora' }
     ];
-    protected localeConfig: AppLocaleConfigModel = { locale: '' };
-    protected styleConfig: AppStyleConfigModel | undefined;
+    protected localeConfig: LocaleConfigModel = { locale: '' };
+    protected styleConfig: StyleConfigModel | undefined;
 
     protected datetime$: Observable<string> = interval(250).pipe(map(() => moment(Date.now()).format('LLLL')));
 
@@ -93,7 +93,7 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
     }
 
     ngOnInit(): void {
-        addClassSelectors(this._element.nativeElement, this._renderer, 'ngx-home-page');
+        addClassSelectors(this._element.nativeElement, this._renderer, 'ngx-home-page', 'flex');
     }
 
     ngOnDestroy(): void {
@@ -107,11 +107,11 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
     listenLocaleConfigChange(): void {
         this._zone.runOutsideAngular(() => {
             this.localeConfigStore$ = this._store
-                .select(AppLocaleFeatureSelector)
-                .pipe(filter(state => state.action === AppLocaleConfigLoadDoneAction.type))
+                .select(NGXLocaleFeatureSelector)
+                .pipe(filter(state => state.action === NGXLocaleConfigLoadDoneAction.type))
                 .subscribe(state =>
                     this._zone.run(() => {
-                        const model: AppLocaleConfigModel = state.result as AppLocaleConfigModel;
+                        const model: LocaleConfigModel = state.result as LocaleConfigModel;
                         this.localeOption = model.locale;
                     }));
         });
@@ -120,11 +120,11 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
     listenStyleConfigChange(): void {
         this._zone.runOutsideAngular(() => {
             this.styleConfigStore$ = this._store
-                .select(AppStyleFeatureSelector)
-                .pipe(filter(state => state.action === AppStyleConfigLoadDoneAction.type))
+                .select(NGXStyleFeatureSelector)
+                .pipe(filter(state => state.action === NGXStyleConfigLoadDoneAction.type))
                 .subscribe(state =>
                     this._zone.run(() => {
-                        const model: AppStyleConfigModel = state.result as AppStyleConfigModel;
+                        const model: StyleConfigModel = state.result as StyleConfigModel;
 
                         if (this.styleConfig) {
                             this.styleConfig.color = model.color;
@@ -136,13 +136,13 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
         });
     }
 
-    protected handleLocaleSelectEvent(value: AppLocaleName | string): void {
+    protected handleChangeLocaleEvent(value: LocaleName | string): void {
         window.location.replace(assignHrefLink(value, APP_URL_HASH));
     }
 
-    protected listenStyleColorChange(name: AppStyleColorName): void {
+    protected listenStyleColorChange(name: StyleColorName): void {
         if (this.styleConfig)
-            this._store.dispatch(AppStyleConfigSaveAction({
+            this._store.dispatch(NGXStyleConfigSaveAction({
                 ...this.styleConfig,
                 color: name
             }));
@@ -150,15 +150,15 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
 
     protected listenStyleDarkModeChange(flag: boolean | undefined): void {
         if (this.styleConfig)
-            this._store.dispatch(AppStyleConfigSaveAction({
+            this._store.dispatch(NGXStyleConfigSaveAction({
                 ...this.styleConfig,
                 darkMode: Boolean(flag)
             }));
     }
 
-    protected listenStyleThemeChange(name: AppStyleThemeName): void {
+    protected listenStyleThemeChange(name: StyleThemeName): void {
         if (this.styleConfig)
-            this._store.dispatch(AppStyleConfigSaveAction({
+            this._store.dispatch(NGXStyleConfigSaveAction({
                 ...this.styleConfig,
                 theme: name
             }));

@@ -2,56 +2,61 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map } from "rxjs";
 
-import { AppStyleConfigService } from "../services/style.service";
+import { NGXStyleConfigService } from "../services/style.service";
 
-import { AppStyleConfigLoadAction, AppStyleConfigLoadDoneAction, AppStyleConfigSaveAction, AppStyleConfigSaveDoneAction } from "./style.action";
-
-import { AppStyleConfigModel } from "../models/style.model";
+import { NGXStyleConfigInitAction, NGXStyleConfigInitDoneAction, NGXStyleConfigLoadAction, NGXStyleConfigLoadDoneAction, NGXStyleConfigSaveAction, NGXStyleConfigSaveDoneAction } from "./style.action";
 
 @Injectable()
-export class AppStyleConfigEffect {
+export class NGXStyleConfigEffect {
 
-    private readonly APP_STYLE_DEFAULT_CONFIG: AppStyleConfigModel = { color: 'indigo', darkMode: false, theme: 'lara' };
+    init$ = createEffect(() =>
+        this._actions.pipe(
+            ofType(NGXStyleConfigInitAction),
+            exhaustMap(() =>
+                this._service.saveStyleConfig({ color: 'violet', darkMode: false, theme: 'lara' })
+                    .pipe(
+                        map(value => NGXStyleConfigInitDoneAction({
+                            action: NGXStyleConfigInitDoneAction.type, result: value
+                        })),
+                        catchError(async () => NGXStyleConfigInitDoneAction({
+                            action: NGXStyleConfigInitDoneAction.type, result: false
+                        }))
+                    ))
+        ));
 
     load$ = createEffect(() =>
         this._actions.pipe(
-            ofType(AppStyleConfigLoadAction),
+            ofType(NGXStyleConfigLoadAction),
             exhaustMap(() =>
                 this._service.loadStyleConfig()
                     .pipe(
-                        map(value => AppStyleConfigLoadDoneAction({
-                            action: AppStyleConfigLoadDoneAction.type,
-                            default: !Boolean(value),
-                            result: value || this.APP_STYLE_DEFAULT_CONFIG
+                        map(value => NGXStyleConfigLoadDoneAction({
+                            action: NGXStyleConfigLoadDoneAction.type, result: value || undefined
                         })),
-                        catchError(async () => AppStyleConfigLoadDoneAction({
-                            action: AppStyleConfigLoadDoneAction.type,
-                            default: true,
-                            result: this.APP_STYLE_DEFAULT_CONFIG
+                        catchError(async () => NGXStyleConfigLoadDoneAction({
+                            action: NGXStyleConfigLoadDoneAction.type, result: undefined
                         }))
                     ))
         ));
 
     save$ = createEffect(() =>
         this._actions.pipe(
-            ofType(AppStyleConfigSaveAction),
+            ofType(NGXStyleConfigSaveAction),
             exhaustMap(action =>
                 this._service.saveStyleConfig({ color: action.color, darkMode: action.darkMode, theme: action.theme })
                     .pipe(
-                        map(value => AppStyleConfigSaveDoneAction({
-                            action: AppStyleConfigSaveDoneAction.type,
-                            default: false, result: value
+                        map(value => NGXStyleConfigSaveDoneAction({
+                            action: NGXStyleConfigSaveDoneAction.type, result: value
                         })),
-                        catchError(async () => AppStyleConfigSaveDoneAction({
-                            action: AppStyleConfigSaveDoneAction.type,
-                            default: true, result: false
+                        catchError(async () => NGXStyleConfigSaveDoneAction({
+                            action: NGXStyleConfigSaveDoneAction.type, result: false
                         }))
                     ))
         ));
 
     constructor(
         protected _actions: Actions,
-        protected _service: AppStyleConfigService
+        protected _service: NGXStyleConfigService
     ) { }
 
 }

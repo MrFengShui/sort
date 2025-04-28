@@ -1,4 +1,4 @@
-import { AppLocaleName } from "./locale.model";
+import { LocaleName } from "./locale.model";
 
 export interface SelectorOptionModel<T> {
 

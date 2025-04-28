@@ -1,23 +1,33 @@
 import { createAction, props } from '@ngrx/store';
 
-import { AppStyleConfigModel } from '../models/style.model';
-import { AppStyleReducerState } from './style.reducer';
+import { NGXStoreReducerState } from './store.state';
 
-export const AppStyleConfigLoadAction = createAction(
-    '[App Style Config] Load Action'
+import { StyleConfigModel } from '../models/style.model';
+
+export const NGXStyleConfigInitAction = createAction(
+    '[NGX Style Config] Initialize Action'
 );
 
-export const AppStyleConfigLoadDoneAction = createAction(
-    '[App Style Config] Load Done Action',
-    props<AppStyleReducerState<AppStyleConfigModel>>()
+export const NGXStyleConfigInitDoneAction = createAction(
+    '[NGX Style Config] Initialize Done Action',
+    props<NGXStoreReducerState<boolean>>()
 );
 
-export const AppStyleConfigSaveAction = createAction(
-    '[App Style Config] Save Action',
-    props<AppStyleConfigModel>()
+export const NGXStyleConfigLoadAction = createAction(
+    '[NGX Style Config] Load Action'
 );
 
-export const AppStyleConfigSaveDoneAction = createAction(
-    '[App Style Config] Save Done Action',
-    props<AppStyleReducerState<boolean>>()
+export const NGXStyleConfigLoadDoneAction = createAction(
+    '[NGX Style Config] Load Done Action',
+    props<NGXStoreReducerState<StyleConfigModel>>()
+);
+
+export const NGXStyleConfigSaveAction = createAction(
+    '[NGX Style Config] Save Action',
+    props<StyleConfigModel>()
+);
+
+export const NGXStyleConfigSaveDoneAction = createAction(
+    '[NGX Style Config] Save Done Action',
+    props<NGXStoreReducerState<boolean>>()
 );

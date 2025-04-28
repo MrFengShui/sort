@@ -2,7 +2,7 @@ import { definePreset, usePreset } from '@primeng/themes';
 
 import Nora from '@primeng/themes/nora';
 
-import { AppStyleColorName } from '../models/style.model';
+import { StyleColorName } from '../models/style.model';
 
 const NoraAmberPreset = definePreset(Nora, {
     semantic: {
@@ -1068,7 +1068,7 @@ const NoraVioletPreset = definePreset(Nora, {
     }
 });
 
-export const selectNoraPreset = (name: AppStyleColorName): void => {
+export const selectNoraPreset = (name: StyleColorName): void => {
     switch (name) {
         case 'amber': usePreset(NoraAmberPreset); break;
         case 'emerald': usePreset(NoraEmeraldPreset); break;

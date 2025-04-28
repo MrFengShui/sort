@@ -2,7 +2,7 @@ import { definePreset, usePreset } from '@primeng/themes';
 
 import Aura from '@primeng/themes/aura';
 
-import { AppStyleColorName } from '../models/style.model';
+import { StyleColorName } from '../models/style.model';
 
 const AuraAmberPreset = definePreset(Aura, {
     semantic: {
@@ -1068,7 +1068,7 @@ const AuraVioletPreset = definePreset(Aura, {
     }
 });
 
-export const selectAuraPreset = (name: AppStyleColorName): void => {
+export const selectAuraPreset = (name: StyleColorName): void => {
     switch (name) {
         case 'amber': usePreset(AuraAmberPreset); break;
         case 'emerald': usePreset(AuraEmeraldPreset); break;

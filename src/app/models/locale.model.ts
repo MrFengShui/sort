@@ -1,7 +1,7 @@
-export type AppLocaleName = 'en-US' | 'zh-CN';
+export type LocaleName = 'en-US' | 'zh-CN';
 
-export interface AppLocaleConfigModel {
+export interface LocaleConfigModel {
 
-    locale: AppLocaleName | string;
+    locale: LocaleName | string;
 
 }

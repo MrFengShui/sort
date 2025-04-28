@@ -2,18 +2,19 @@ import { Component, Inject, LOCALE_ID, NgZone, OnDestroy, OnInit, Renderer2 } fr
 import { Store } from '@ngrx/store';
 import { filter, Subscription } from 'rxjs';
 
-import { AppStyleColorName, AppStyleConfigModel, AppStyleThemeName } from './models/style.model';
-import { AppLocaleName } from './models/locale.model';
+import { StyleColorName, StyleConfigModel, StyleThemeName } from './models/style.model';
+import { LocaleName } from './models/locale.model';
 
 import { addClassSelectors, removeClassSelectors } from './share/selector.utils';
 import { updateLocaleToChinese, updateLocaleToEnglish } from './share/datetime.utils';
+import { assignHrefLink, APP_URL_HASH } from './share/location.utils';
 
 import { AppLocaleConfigListener, AppStyleConfigListener } from './interfaces/config.interface';
 
-import { AppStyleFeatureSelector } from './store/style.selector';
-import { AppStyleConfigLoadAction, AppStyleConfigLoadDoneAction, AppStyleConfigSaveAction, AppStyleConfigSaveDoneAction } from './store/style.action';
-import { AppLocaleFeatureSelector } from './store/locale.selector';
-import { AppLocaleConfigLoadAction, AppLocaleConfigLoadDoneAction, AppLocaleConfigSaveAction, AppLocaleConfigSaveDoneAction } from './store/locale.action';
+import { NGXStyleFeatureSelector } from './store/style.selector';
+import { NGXStyleConfigInitAction, NGXStyleConfigInitDoneAction, NGXStyleConfigLoadAction, NGXStyleConfigLoadDoneAction, NGXStyleConfigSaveAction, NGXStyleConfigSaveDoneAction } from './store/style.action';
+import { NGXLocaleFeatureSelector } from './store/locale.selector';
+import { NGXLocaleConfigInitDoneAction, NGXLocaleConfigLoadAction, NGXLocaleConfigLoadDoneAction, NGXLocaleConfigSaveAction, NGXLocaleConfigSaveDoneAction } from './store/locale.action';
 
 import { selectAuraPreset } from './theme/aura.theme';
 import { selectLaraPreset } from './theme/lara.theme';
@@ -42,8 +43,8 @@ export class AppEntryComponent implements OnInit, OnDestroy, AppLocaleConfigList
     }
 
     ngOnInit(): void {
-        this._store.dispatch(AppLocaleConfigLoadAction());
-        this._store.dispatch(AppStyleConfigLoadAction());
+        this._store.dispatch(NGXLocaleConfigLoadAction());
+        this._store.dispatch(NGXStyleConfigLoadAction());
     }
 
     ngOnDestroy(): void {
@@ -57,16 +58,19 @@ export class AppEntryComponent implements OnInit, OnDestroy, AppLocaleConfigList
     listenLocaleConfigChange(): void {
         this._zone.runOutsideAngular(() => {
             this.localeConfigStore$ = this._store
-                .select(AppLocaleFeatureSelector)
+                .select(NGXLocaleFeatureSelector)
                 .pipe(filter(state => state.action.length > 0))
                 .subscribe(state =>
                     this._zone.run(() => {
-                        if (state.action === AppLocaleConfigLoadDoneAction.type)
-                            this._store.dispatch(AppLocaleConfigSaveAction({
+                        if (state.action === NGXLocaleConfigInitDoneAction.type && Boolean(state.result))
+                            window.location.replace(assignHrefLink('en-US', APP_URL_HASH));
+
+                        if (state.action === NGXLocaleConfigLoadDoneAction.type && Boolean(state.result))
+                            this._store.dispatch(NGXLocaleConfigSaveAction({
                                 locale: this._localeID
                             }));
 
-                        if (state.action === AppLocaleConfigSaveDoneAction.type)
+                        if (state.action === NGXLocaleConfigSaveDoneAction.type && Boolean(state.result))
                             this.matchDatetimeByLocale(this._localeID);
                     }))
         });
@@ -75,21 +79,21 @@ export class AppEntryComponent implements OnInit, OnDestroy, AppLocaleConfigList
     listenStyleConfigChange(): void {
         this._zone.runOutsideAngular(() => {
             this.styleConfigStore$ = this._store
-                .select(AppStyleFeatureSelector)
+                .select(NGXStyleFeatureSelector)
                 .pipe(filter(state => state.action.length > 0))
                 .subscribe(state =>
                     this._zone.run(() => {
-                        if (state.action === AppStyleConfigLoadDoneAction.type) {
-                            const model: AppStyleConfigModel = state.result as AppStyleConfigModel;
+                        if (state.action === NGXStyleConfigInitDoneAction.type && Boolean(state.result))
+                            this._store.dispatch(NGXStyleConfigLoadAction());
+
+                        if (state.action === NGXStyleConfigLoadDoneAction.type && Boolean(state.result)) {
+                            const model: StyleConfigModel = state.result as StyleConfigModel;
                             this.selectDarkMode(model.darkMode);
                             this.selectColorAndTheme(model.color, model.theme);
-
-                            if (state.default)
-                                this._store.dispatch(AppStyleConfigSaveAction(model));
                         }
 
-                        if (state.action === AppStyleConfigSaveDoneAction.type)
-                            this._store.dispatch(AppStyleConfigLoadAction());
+                        if (state.action === NGXStyleConfigSaveDoneAction.type && Boolean(state.result))
+                            this._store.dispatch(NGXStyleConfigLoadAction());
                     }))
         });
     }
@@ -103,7 +107,7 @@ export class AppEntryComponent implements OnInit, OnDestroy, AppLocaleConfigList
             removeClassSelectors(element, this._renderer, 'p-dark-mode');
     }
 
-    private selectColorAndTheme(color: AppStyleColorName, theme: AppStyleThemeName): void {
+    private selectColorAndTheme(color: StyleColorName, theme: StyleThemeName): void {
         switch (theme) {
             default:
             case 'aura': selectAuraPreset(color); break;
@@ -113,7 +117,7 @@ export class AppEntryComponent implements OnInit, OnDestroy, AppLocaleConfigList
         }
     }
 
-    private matchDatetimeByLocale(locale: AppLocaleName | string): void {
+    private matchDatetimeByLocale(locale: LocaleName | string): void {
         if (locale === 'en-US') updateLocaleToEnglish();
 
         if (locale === 'zh-CN') updateLocaleToChinese();

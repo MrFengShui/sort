@@ -6,9 +6,13 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { DividerModule } from 'primeng/divider';
+import { DrawerModule } from 'primeng/drawer';
 import { FieldsetModule } from 'primeng/fieldset';
 import { GalleriaModule } from 'primeng/galleria';
 import { ImageModule } from 'primeng/image';
+import { PanelModule } from 'primeng/panel';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { RippleModule } from 'primeng/ripple';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SelectModule } from 'primeng/select';
@@ -25,9 +29,13 @@ import { TooltipModule } from 'primeng/tooltip';
         CardModule,
         CarouselModule,
         DividerModule,
+        DrawerModule,
         FieldsetModule,
         GalleriaModule,
         ImageModule,
+        PanelModule,
+        RadioButtonModule,
+        RippleModule,
         ScrollPanelModule,
         ScrollTopModule,
         SelectModule,
@@ -43,9 +51,13 @@ import { TooltipModule } from 'primeng/tooltip';
         CardModule,
         CarouselModule,
         DividerModule,
+        DrawerModule,
         FieldsetModule,
         GalleriaModule,
         ImageModule,
+        PanelModule,
+        RadioButtonModule,
+        RippleModule,
         ScrollPanelModule,
         ScrollTopModule,
         SelectModule,

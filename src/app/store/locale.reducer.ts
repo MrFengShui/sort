@@ -1,20 +1,16 @@
 import { createReducer, on } from "@ngrx/store";
 
-import { AppLocaleConfigLoadDoneAction, AppLocaleConfigSaveDoneAction } from "./locale.action";
+import { NGXLocaleConfigInitDoneAction, NGXLocaleConfigLoadDoneAction, NGXLocaleConfigSaveDoneAction } from "./locale.action";
+import { NGXStoreReducerState } from "./store.state";
 
-import { AppLocaleConfigModel } from "../models/locale.model";
+import { LocaleConfigModel } from "../models/locale.model";
 
-export interface AppLocaleReducerState<T = AppLocaleConfigModel | boolean> {
-
-    action: string;
-    result: T | null | undefined;
-
-}
-
-export const AppLocaleConfigReducer = createReducer<AppLocaleReducerState>(
+export const NGXLocaleConfigReducer = createReducer<NGXStoreReducerState<LocaleConfigModel | boolean>>(
     { action: '', result: undefined },
-    on(AppLocaleConfigLoadDoneAction, (state, props) =>
+    on(NGXLocaleConfigInitDoneAction, (state, props) =>
         ({ ...state, action: props.action, result: props.result })),
-    on(AppLocaleConfigSaveDoneAction, (state, props) =>
+    on(NGXLocaleConfigLoadDoneAction, (state, props) =>
+        ({ ...state, action: props.action, result: props.result })),
+    on(NGXLocaleConfigSaveDoneAction, (state, props) =>
         ({ ...state, action: props.action, result: props.result })),
 );

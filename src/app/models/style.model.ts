@@ -1,10 +1,10 @@
-export type AppStyleColorName = 'amber' | 'emerald' | 'indigo' | 'orange' | 'rose' | 'sky' | 'violet';
-export type AppStyleThemeName = 'aura' | 'material' | 'lara' | 'nora';
+export type StyleColorName = 'amber' | 'emerald' | 'indigo' | 'orange' | 'rose' | 'sky' | 'violet';
+export type StyleThemeName = 'aura' | 'material' | 'lara' | 'nora';
 
-export interface AppStyleConfigModel {
+export interface StyleConfigModel {
 
-    color: AppStyleColorName;
+    color: StyleColorName;
     darkMode: boolean;
-    theme: AppStyleThemeName;
+    theme: StyleThemeName;
 
 }

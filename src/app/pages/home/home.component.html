@@ -23,7 +23,7 @@
                     <i class="pi pi-arrow-right-arrow-left"></i>
                     <p-buttongroup>
                         <p-button [disabled]="localeOption === option.value" severity="contrast" size="small" outlined
-                            (onClick)="handleLocaleSelectEvent(option.value)" *ngFor="let option of localeOptions">
+                            (onClick)="handleChangeLocaleEvent(option.value)" *ngFor="let option of localeOptions">
                             <div class="flex align-items-center gap-2">
                                 <span>{{ option.label }}</span>
                                 <i class="pi pi-language" *ngIf="localeOption === option.value"></i>

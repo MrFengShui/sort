@@ -1,16 +1,18 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 
-import { AppStyleReducerState } from "./style.reducer";
+import { NGXStoreReducerState } from "./store.state";
 
-export const APP_STYLE_FEATURE_KEY: string = 'APP_STYLE_FEATURE';
+import { StyleConfigModel } from "../models/style.model";
 
-export interface AppStyleFeatureState {
+export const NGX_STYLE_FEATURE_KEY: string = window.btoa('NGX_STYLE_FEATURE_KEY');
 
-    feature: AppStyleReducerState;
+export interface NGXStyleFeatureState {
+
+    feature: NGXStoreReducerState<StyleConfigModel | boolean>;
 
 }
 
-export const AppStyleFeatureSelector = createSelector(
-    createFeatureSelector(APP_STYLE_FEATURE_KEY),
-    (state: AppStyleFeatureState) => state.feature
+export const NGXStyleFeatureSelector = createSelector(
+    createFeatureSelector(NGX_STYLE_FEATURE_KEY),
+    (state: NGXStyleFeatureState) => state.feature
 );

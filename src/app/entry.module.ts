@@ -1,6 +1,7 @@
 import { isDevMode, NgModule, provideZoneChangeDetection } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PreloadAllModules, provideRouter, RouterModule, withInMemoryScrolling, withPreloading, withRouterConfig } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
@@ -19,6 +20,7 @@ import { AppEntryComponent } from './entry.component';
     declarations: [AppEntryComponent],
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         RouterModule,
         EffectsModule.forRoot(),
         StoreModule.forRoot([], {

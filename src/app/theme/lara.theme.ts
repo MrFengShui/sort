@@ -2,9 +2,9 @@ import { definePreset, usePreset } from '@primeng/themes';
 
 import Lara from '@primeng/themes/lara';
 
-import { AppStyleColorName } from '../models/style.model';
+import { StyleColorName } from '../models/style.model';
 
-const LaraAmberPreset = definePreset(Lara, {
+const AmberPreset = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{amber.50}',
@@ -68,20 +68,27 @@ const LaraAmberPreset = definePreset(Lara, {
                     mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
+                content: {
+                    background: "{surface.200}",
+                    hoverBackground: "{surface.100}",
+                    borderColor: "{surface.300}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     }
                 }
@@ -134,20 +141,27 @@ const LaraAmberPreset = definePreset(Lara, {
                     mutedColor: '{surface.400}',
                     hoverMutedColor: '{surface.400}'
                 },
+                content: {
+                    background: "{surface.800}",
+                    hoverBackground: "{surface.900}",
+                    borderColor: "{surface.700}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     }
                 }
@@ -156,7 +170,7 @@ const LaraAmberPreset = definePreset(Lara, {
     }
 });
 
-const LaraEmeraldPreset = definePreset(Lara, {
+const EmeraldPreset = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{emerald.50}',
@@ -220,20 +234,27 @@ const LaraEmeraldPreset = definePreset(Lara, {
                     mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
+                content: {
+                    background: "{surface.200}",
+                    hoverBackground: "{surface.100}",
+                    borderColor: "{surface.300}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     }
                 }
@@ -286,20 +307,27 @@ const LaraEmeraldPreset = definePreset(Lara, {
                     mutedColor: '{surface.400}',
                     hoverMutedColor: '{surface.400}'
                 },
+                content: {
+                    background: "{surface.800}",
+                    hoverBackground: "{surface.900}",
+                    borderColor: "{surface.700}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     }
                 }
@@ -308,7 +336,7 @@ const LaraEmeraldPreset = definePreset(Lara, {
     }
 });
 
-const LaraIndigoPreset = definePreset(Lara, {
+const IndigoPreset = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{indigo.50}',
@@ -372,20 +400,27 @@ const LaraIndigoPreset = definePreset(Lara, {
                     mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
+                content: {
+                    background: "{surface.200}",
+                    hoverBackground: "{surface.100}",
+                    borderColor: "{surface.300}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     }
                 }
@@ -440,18 +475,18 @@ const LaraIndigoPreset = definePreset(Lara, {
                 },
                 overlay: {
                     select: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     }
                 }
@@ -460,7 +495,7 @@ const LaraIndigoPreset = definePreset(Lara, {
     }
 });
 
-const LaraOrangePreset = definePreset(Lara, {
+const OrangePreset = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{orange.50}',
@@ -524,20 +559,27 @@ const LaraOrangePreset = definePreset(Lara, {
                     mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
+                content: {
+                    background: "{surface.200}",
+                    hoverBackground: "{surface.100}",
+                    borderColor: "{surface.300}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     }
                 }
@@ -590,20 +632,27 @@ const LaraOrangePreset = definePreset(Lara, {
                     mutedColor: '{surface.400}',
                     hoverMutedColor: '{surface.400}'
                 },
+                content: {
+                    background: "{surface.800}",
+                    hoverBackground: "{surface.900}",
+                    borderColor: "{surface.700}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     }
                 }
@@ -612,7 +661,7 @@ const LaraOrangePreset = definePreset(Lara, {
     }
 });
 
-const LaraRosePreset = definePreset(Lara, {
+const RosePreset = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{rose.50}',
@@ -676,20 +725,27 @@ const LaraRosePreset = definePreset(Lara, {
                     mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
+                content: {
+                    background: "{surface.200}",
+                    hoverBackground: "{surface.100}",
+                    borderColor: "{surface.300}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     }
                 }
@@ -742,20 +798,27 @@ const LaraRosePreset = definePreset(Lara, {
                     mutedColor: '{surface.400}',
                     hoverMutedColor: '{surface.400}'
                 },
+                content: {
+                    background: "{surface.800}",
+                    hoverBackground: "{surface.900}",
+                    borderColor: "{surface.700}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     }
                 }
@@ -764,7 +827,7 @@ const LaraRosePreset = definePreset(Lara, {
     }
 });
 
-const LaraSkyPreset = definePreset(Lara, {
+const SkyPreset = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{sky.50}',
@@ -828,20 +891,27 @@ const LaraSkyPreset = definePreset(Lara, {
                     mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
+                content: {
+                    background: "{surface.200}",
+                    hoverBackground: "{surface.100}",
+                    borderColor: "{surface.300}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     }
                 }
@@ -894,20 +964,27 @@ const LaraSkyPreset = definePreset(Lara, {
                     mutedColor: '{surface.400}',
                     hoverMutedColor: '{surface.400}'
                 },
+                content: {
+                    background: "{surface.800}",
+                    hoverBackground: "{surface.900}",
+                    borderColor: "{surface.700}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     }
                 }
@@ -916,7 +993,7 @@ const LaraSkyPreset = definePreset(Lara, {
     }
 });
 
-const LaraVioletPreset = definePreset(Lara, {
+const VioletPreset = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{violet.50}',
@@ -953,6 +1030,10 @@ const LaraVioletPreset = definePreset(Lara, {
                     hoverColor: '{primary.600}',
                     activeColor: '{primary.400}'
                 },
+                mask: {
+                    background: "rgba(255, 255, 255, 0.85)",
+                    color: "{surface.700}"
+                },
                 formField: {
                     background: '{surface.0}',
                     disabledBackground: '{surface.300}',
@@ -980,20 +1061,27 @@ const LaraVioletPreset = definePreset(Lara, {
                     mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
+                content: {
+                    background: "{surface.200}",
+                    hoverBackground: "{surface.100}",
+                    borderColor: "{surface.300}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.0}',
+                        background: '{surface.200}',
+                        borderColor: '{surface.200}',
                         color: '{text.color}'
                     }
                 }
@@ -1018,6 +1106,10 @@ const LaraVioletPreset = definePreset(Lara, {
                     contrastColor: '{surface.950}',
                     hoverColor: '{primary.600}',
                     activeColor: '{primary.400}'
+                },
+                mask: {
+                    background: "rgba(0, 0, 0, 0.85)",
+                    color: "{surface.300}"
                 },
                 formField: {
                     background: '{surface.950}',
@@ -1046,20 +1138,27 @@ const LaraVioletPreset = definePreset(Lara, {
                     mutedColor: '{surface.400}',
                     hoverMutedColor: '{surface.400}'
                 },
+                content: {
+                    background: "{surface.800}",
+                    hoverBackground: "{surface.900}",
+                    borderColor: "{surface.700}",
+                    color: "{text.color}",
+                    hoverColor: "{text.hover.color}"
+                },
                 overlay: {
                     select: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     popover: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     },
                     modal: {
-                        background: '{surface.950}',
-                        borderColor: '{surface.950}',
+                        background: '{surface.800}',
+                        borderColor: '{surface.800}',
                         color: '{text.color}'
                     }
                 }
@@ -1068,14 +1167,14 @@ const LaraVioletPreset = definePreset(Lara, {
     }
 });
 
-export const selectLaraPreset = (name: AppStyleColorName): void => {
+export const selectLaraPreset = (name: StyleColorName): void => {
     switch (name) {
-        case 'amber': usePreset(LaraAmberPreset); break;
-        case 'emerald': usePreset(LaraEmeraldPreset); break;
-        case 'indigo': usePreset(LaraIndigoPreset); break;
-        case 'orange': usePreset(LaraOrangePreset); break;
-        case 'rose': usePreset(LaraRosePreset); break;
-        case 'sky': usePreset(LaraSkyPreset); break;
-        case 'violet': usePreset(LaraVioletPreset); break;
+        case 'amber': usePreset(AmberPreset); break;
+        case 'emerald': usePreset(EmeraldPreset); break;
+        case 'indigo': usePreset(IndigoPreset); break;
+        case 'orange': usePreset(OrangePreset); break;
+        case 'rose': usePreset(RosePreset); break;
+        case 'sky': usePreset(SkyPreset); break;
+        case 'violet': usePreset(VioletPreset); break;
     }
 }

@@ -1,21 +1,16 @@
 import { createReducer, on } from "@ngrx/store";
 
-import { AppStyleConfigLoadDoneAction, AppStyleConfigSaveDoneAction } from "./style.action";
+import { NGXStyleConfigInitDoneAction, NGXStyleConfigLoadDoneAction, NGXStyleConfigSaveDoneAction } from "./style.action";
+import { NGXStoreReducerState } from "./store.state";
 
-import { AppStyleConfigModel } from "../models/style.model";
+import { StyleConfigModel } from "../models/style.model";
 
-export interface AppStyleReducerState<T = AppStyleConfigModel | boolean> {
-
-    action: string;
-    default: boolean;
-    result: T | undefined;
-
-}
-
-export const AppStyleConfigReducer = createReducer<AppStyleReducerState>(
-    { action: '', default: true, result: undefined },
-    on(AppStyleConfigLoadDoneAction, (state, props) =>
-        ({ ...state, action: props.action, default: props.default, result: props.result })),
-    on(AppStyleConfigSaveDoneAction, (state, props) =>
-        ({ ...state, action: props.action, default: props.default, result: props.result }))
+export const NGXStyleConfigReducer = createReducer<NGXStoreReducerState<StyleConfigModel | boolean>>(
+    { action: '', result: undefined },
+    on(NGXStyleConfigInitDoneAction, (state, props) =>
+        ({ ...state, action: props.action, result: props.result })),
+    on(NGXStyleConfigLoadDoneAction, (state, props) =>
+        ({ ...state, action: props.action, result: props.result })),
+    on(NGXStyleConfigSaveDoneAction, (state, props) =>
+        ({ ...state, action: props.action, result: props.result }))
 );

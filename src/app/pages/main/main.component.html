@@ -1,10 +1,90 @@
-<p-toolbar>
+<p-toolbar styleClass="main-page-header h-5rem">
     <ng-template #start>
-        <p-button icon="pi pi-plus" class="mr-2" text severity="secondary" />
+        <p-button severity="secondary" size="small">
+            <ng-template pTemplate="icon"><i class="pi pi-bars text-3xl"></i></ng-template>
+        </p-button>
     </ng-template>
     <ng-template #end>
-        <p-togglebutton [ngModel]="styleConfig?.darkMode" size="small" onLabel="夜间模式" offLabel="白昼模式"
-            [onIcon]="'pi pi-moon'" [offIcon]="'pi pi-sun'" (onChange)="listenDarkModeChange($event.checked)" />
+        <p-button rounded severity="secondary" size="small" (click)="drawerVisible = true">
+            <ng-template pTemplate="icon"><i class="pi pi-spin pi-cog text-3xl"></i></ng-template>
+        </p-button>
     </ng-template>
 </p-toolbar>
 <router-outlet></router-outlet>
+<p-drawer blockScroll [closable]="false" [dismissible]="false" position="right"
+    transitionOptions="1250ms cubic-bezier(0.60, 0.00, 0.40, 1.00)" [(visible)]="drawerVisible"
+    styleClass="main-page-drawer p-3">
+    <ng-template pTemplate="headless">
+        <div class="flex flex-column gap-3">
+            <div class="flex align-items-center gap-3">
+                <span class="flex-auto text-2xl font-bold">{{ I18N_MAIN_DRAWER_TITLE }}</span>
+                <p-button rounded severity="secondary" size="small" variant="text" (click)="drawerVisible = false">
+                    <ng-template pTemplate="icon"><i class="pi pi-times text-xl"></i></ng-template>
+                </p-button>
+            </div>
+            <p-panel>
+                <ng-template pTemplate="header">
+                    <span class="text-xl font-bold">{{ I18N_MAIN_DRAWER_LABEL_STYLE }}</span>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <div class="flex gap-3">
+                        <p-button fluid [label]="I18N_MAIN_DRAWER_LABEL_CHANGE" severity="success" class="flex-auto"
+                            (click)="handleChangeStyleEvent()"></p-button>
+                        <p-button fluid [label]="I18N_MAIN_DRAWER_LABEL_DEFAULT" severity="warn" class="flex-auto"
+                            (click)="handleDefaultStyleEvent()"></p-button>
+                    </div>
+                </ng-template>
+                <div class="grid nested-grid">
+                    <div class="col-2 flex align-items-center">{{ I18N_MAIN_DRAWER_LABEL_THEME }}</div>
+                    <div class="col-10">
+                        <p-selectbutton [ngModel]="styleConfig?.theme" [allowEmpty]="false"
+                            [options]="styleThemeOptions" optionLabel="label" optionValue="value"
+                            (onChange)="listenStyleThemeChange($event.value)"></p-selectbutton>
+                    </div>
+                    <div class="col-2 flex align-items-baseline">{{ I18N_MAIN_DRAWER_LABEL_COLOR }}</div>
+                    <div class="col-10">
+                        <div class="grid">
+                            <div class="col-3 flex align-items-center gap-2" *ngFor="let option of styleColorOptions">
+                                <p-radiobutton [ngModel]="styleConfig?.color" [inputId]="'id-color-' + option.value"
+                                    [name]="option.value" [value]="option.value"
+                                    (onClick)="listenStyleColorChange($event.value)"></p-radiobutton>
+                                <label [for]="'id-color-' + option.value">{{ option.label }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 flex align-items-center">{{ I18N_MAIN_DRAWER_LABEL_MODE }}</div>
+                    <div class="col-10">
+                        <p-togglebutton [ngModel]="styleConfig?.darkMode" [onLabel]="I18N_MAIN_DRAWER_STYLE_MODE_ON"
+                            [offLabel]="I18N_MAIN_DRAWER_STYLE_MODE_OFF" [onIcon]="'pi pi-moon'" [offIcon]="'pi pi-sun'"
+                            (onChange)="listenStyleModeChange($event.checked)"></p-togglebutton>
+                    </div>
+                </div>
+            </p-panel>
+            <p-divider><b>{{ I18N_MAIN_DRAWER_LABEL_OR }}</b></p-divider>
+            <p-panel>
+                <ng-template pTemplate="header">
+                    <span class="text-xl font-bold">{{ I18N_MAIN_DRAWER_LABEL_LOCALE }}</span>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <div class="flex gap-3">
+                        <p-button fluid [label]="I18N_MAIN_DRAWER_LABEL_CHANGE" severity="success" class="flex-auto"
+                            (click)="handleChangeLocaleEvent()"></p-button>
+                        <p-button fluid [label]="I18N_MAIN_DRAWER_LABEL_DEFAULT" severity="warn" class="flex-auto"
+                            (click)="handleDefaultLocaleEvent()"></p-button>
+                    </div>
+                </ng-template>
+                <div class="flex">
+                    <p-selectbutton [ngModel]="localeConfig?.locale" [allowEmpty]="false" [options]="localeOptions"
+                        optionLabel="label" optionValue="value" (onChange)="listenLocaleChange($event.value)">
+                        <ng-template pTemplate="item" let-item>
+                            <span class="flex align-items-center gap-2">
+                                <i class="pi pi-language" *ngIf="item.value === localeConfig?.locale"></i>
+                                <span>{{ item.label }}</span>
+                            </span>
+                        </ng-template>
+                    </p-selectbutton>
+                </div>
+            </p-panel>
+        </div>
+    </ng-template>
+</p-drawer>
