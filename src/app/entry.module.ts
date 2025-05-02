@@ -10,9 +10,10 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { providePrimeNG } from 'primeng/config';
 
-import { _ROUTES_ } from './routes/app.routing';
+import { _ROUTES_ } from './routes/root.routing';
 
-import { AppPagesModule } from './modules/pages.module';
+import { NGXPagesModule } from './modules/pages.module';
+import { NGXWidgetsModule } from './modules/widgets.module';
 
 import { AppEntryComponent } from './entry.component';
 
@@ -34,7 +35,8 @@ import { AppEntryComponent } from './entry.component';
             }
         }),
 
-        AppPagesModule
+        NGXPagesModule,
+        NGXWidgetsModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },

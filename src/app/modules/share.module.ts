@@ -10,6 +10,7 @@ import { DrawerModule } from 'primeng/drawer';
 import { FieldsetModule } from 'primeng/fieldset';
 import { GalleriaModule } from 'primeng/galleria';
 import { ImageModule } from 'primeng/image';
+import { MessageModule } from 'primeng/message';
 import { PanelModule } from 'primeng/panel';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RippleModule } from 'primeng/ripple';
@@ -17,10 +18,13 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SelectModule } from 'primeng/select';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { SplitterModule } from 'primeng/splitter';
 import { TagModule } from 'primeng/tag';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
+import { ToastModule } from 'primeng/toast';
+import { TreeModule } from 'primeng/tree';
 
 @NgModule({
     imports: [
@@ -33,6 +37,7 @@ import { TooltipModule } from 'primeng/tooltip';
         FieldsetModule,
         GalleriaModule,
         ImageModule,
+        MessageModule,
         PanelModule,
         RadioButtonModule,
         RippleModule,
@@ -40,10 +45,13 @@ import { TooltipModule } from 'primeng/tooltip';
         ScrollTopModule,
         SelectModule,
         SelectButtonModule,
+        SplitterModule,
         TagModule,
         ToggleButtonModule,
         ToolbarModule,
-        TooltipModule
+        TooltipModule,
+        ToastModule,
+        TreeModule
     ],
     exports: [
         ButtonModule,
@@ -55,6 +63,7 @@ import { TooltipModule } from 'primeng/tooltip';
         FieldsetModule,
         GalleriaModule,
         ImageModule,
+        MessageModule,
         PanelModule,
         RadioButtonModule,
         RippleModule,
@@ -62,10 +71,13 @@ import { TooltipModule } from 'primeng/tooltip';
         ScrollTopModule,
         SelectModule,
         SelectButtonModule,
+        SplitterModule,
         TagModule,
         ToggleButtonModule,
         ToolbarModule,
-        TooltipModule
+        TooltipModule,
+        ToastModule,
+        TreeModule
     ],
     providers: [
         {
@@ -79,4 +91,4 @@ import { TooltipModule } from 'primeng/tooltip';
         }
     ]
 })
-export class AppShareModule { }
+export class NGXShareModule { }

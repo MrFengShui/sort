@@ -4,4 +4,4 @@ import { Component } from "@angular/core";
     selector: 'ngx-dashboard-widget',
     templateUrl: './dashboard.component.html'
 })
-export class AppDashboardWidgetComponent {}
+export class NGXDashboardWidgetComponent { }

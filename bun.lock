@@ -20,6 +20,7 @@
         "@tailwindcss/postcss": "^4.1.4",
         "chart.js": "^4.4.9",
         "default-passive-events": "^2.0.0",
+        "lodash": "^4.17.21",
         "moment": "^2.30.1",
         "primeflex": "^4.0.0",
         "primeicons": "^7.0.0",
@@ -44,6 +45,7 @@
         "@angular/compiler-cli": "^18.2.0",
         "@jest/globals": "^29.7.0",
         "@types/jasmine": "^5.1.7",
+        "@types/lodash": "^4.17.16",
         "angular-eslint": "18.4.3",
         "clean-webpack-plugin": "^4.0.0",
         "compression-webpack-plugin": "^11.1.0",
@@ -722,6 +724,8 @@
     "@types/jsdom": ["@types/jsdom@20.0.1", "", { "dependencies": { "@types/node": "*", "@types/tough-cookie": "*", "parse5": "^7.0.0" } }, "sha512-d0r18sZPmMQr1eG35u12FZfhIXNrnsPU/g5wvRKCUf/tOGilKKwYMYGqh33BNR6ba+2gkHw1EUiHoN3mn7E5IQ=="],
 
     "@types/json-schema": ["@types/json-schema@7.0.15", "", {}, "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="],
+
+    "@types/lodash": ["@types/lodash@4.17.16", "", {}, "sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g=="],
 
     "@types/mime": ["@types/mime@1.3.5", "", {}, "sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w=="],
 

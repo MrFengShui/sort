@@ -9,7 +9,7 @@ import { addClassSelectors, removeClassSelectors } from './share/selector.utils'
 import { updateLocaleToChinese, updateLocaleToEnglish } from './share/datetime.utils';
 import { assignHrefLink, APP_URL_HASH } from './share/location.utils';
 
-import { AppLocaleConfigListener, AppStyleConfigListener } from './interfaces/config.interface';
+import { NGXLocaleConfigListener, NGXStyleConfigListener } from './interfaces/config.interface';
 
 import { NGXStyleFeatureSelector } from './store/style.selector';
 import { NGXStyleConfigInitAction, NGXStyleConfigInitDoneAction, NGXStyleConfigLoadAction, NGXStyleConfigLoadDoneAction, NGXStyleConfigSaveAction, NGXStyleConfigSaveDoneAction } from './store/style.action';
@@ -25,7 +25,7 @@ import { selectNoraPreset } from './theme/nora.theme';
     selector: 'ngx-entry',
     template: `<router-outlet></router-outlet>`
 })
-export class AppEntryComponent implements OnInit, OnDestroy, AppLocaleConfigListener, AppStyleConfigListener {
+export class AppEntryComponent implements OnInit, OnDestroy, NGXLocaleConfigListener, NGXStyleConfigListener {
 
     private localeConfigStore$: Subscription = Subscription.EMPTY;
     private styleConfigStore$: Subscription = Subscription.EMPTY;

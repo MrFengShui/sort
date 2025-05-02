@@ -1,11 +1,17 @@
-export interface AppStyleConfigListener {
+export interface NGXStyleConfigListener {
 
     listenStyleConfigChange(): void;
 
 }
 
-export interface AppLocaleConfigListener {
+export interface NGXLocaleConfigListener {
 
     listenLocaleConfigChange(): void;
+
+}
+
+export interface NGXConfigurationListener {
+
+    listenConfigurationContentChange(): void;
 
 }

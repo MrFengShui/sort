@@ -2,9 +2,9 @@
     <div class="flex flex-column gap-6">
         <p-toolbar styleClass="home-page-head" class="sticky top-0 z-1">
             <ng-template #start>
-                <a [href]="logoHrefLink" class="logo-container">
-                    <p-image src="assets/images/angular_wordmark_gradient.png" alt="logo" loading="lazy"
-                        imageClass="logo-image"></p-image>
+                <a [routerLink]="['/home']" class="logo-container">
+                    <p-image [src]="'assets/images/angular_wordmark_' + (isDarkMode ? 'white' : 'black') + '.png'"
+                        alt="logo" loading="lazy" imageClass="h-3rem"></p-image>
                 </a>
             </ng-template>
             <ng-template #center>
@@ -56,8 +56,8 @@
             <ng-template #start>
                 <div class="flex align-items-center gap-2">
                     <span class="logo-container">
-                        <p-image src="assets/images/angular_icon_gradient.gif" alt="logo" loading="lazy"
-                            imageClass="logo-image"></p-image>
+                        <p-image [src]="'assets/images/angular_wordmark_' + (isDarkMode ? 'white' : 'black') + '.png'"
+                            alt="logo" loading="lazy" imageClass="h-3rem"></p-image>
                     </span>
                     <div class="flex flex-column">
                         <span class="text-xs font-bold">{{ I18N_FOOT_COPYRIGHT }}</span>

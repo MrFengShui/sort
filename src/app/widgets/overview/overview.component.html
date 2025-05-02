@@ -1,0 +1,9 @@
+<p-fieldset [legend]="item.subject" *ngFor="let item of list">
+    <ng-template pTemplate="content">
+        <p-message styleClass="mt-4 mb-5">{{ item.descriptions.join('') }}</p-message>
+        <div class="flex flex-wrap gap-3">
+            <p-button [label]="node.label" outlined rounded severity="secondary" styleClass="white-space-nowrap"
+                *ngFor="let node of item.nodes"></p-button>
+        </div>
+    </ng-template>
+</p-fieldset>

@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 
-import { AppShareModule } from "./share.module";
+import { NGXShareModule } from "./share.module";
 
 import { NGXHomeTechPartComponent } from "../parts/home/tech/tech.component";
 import { NGXHomeIntroPartComponent } from "../parts/home/intro/intro.component";
@@ -16,7 +16,7 @@ import { NGXHomeFuncPartComponent } from "../parts/home/func/func.component";
     imports: [
         CommonModule,
 
-        AppShareModule
+        NGXShareModule
     ],
     exports: [
         NGXHomeFuncPartComponent,

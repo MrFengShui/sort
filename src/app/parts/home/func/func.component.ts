@@ -3,6 +3,8 @@ import { ChangeDetectionStrategy, Component, ElementRef, OnInit, Renderer2 } fro
 import { addClassSelectors } from "../../../share/selector.utils";
 
 import { UniversalMetainfoModel } from "../../../models/metainfo.model";
+import { totalOfLeafNodes } from "../../../share/tree.utils";
+import { _MAIN_PAGE_MENU_LIST_ } from "../../../data/menu.data";
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,7 +14,7 @@ import { UniversalMetainfoModel } from "../../../models/metainfo.model";
 export class NGXHomeFuncPartComponent implements OnInit {
 
     protected readonly I18N_TITLE: string = $localize`:@@home.page.func.part.title:SORTING ALGORITHMS`;
-    protected readonly I18N_SUBTITLE: string = $localize`:@@home.page.func.part.subtitle:There are about 50 sorting algorithms exsiting in this platform. These algorithms are either conventional or unconventional in general. Furthermore, Some of these conventional algorithms are classified into one of comparison, distribution, hybrid, and parallel network. `;
+    protected readonly I18N_SUBTITLE: string = $localize`:@@home.page.func.part.subtitle:There are about ${totalOfLeafNodes(_MAIN_PAGE_MENU_LIST_[2])} sorting algorithms exsiting in this platform. These algorithms are either conventional or unconventional in general. Furthermore, Some of these conventional algorithms are classified into one of comparison, distribution, hybrid, and parallel network. `;
     protected readonly list: UniversalMetainfoModel[] = [
         { title: $localize`:@@home.page.func.part.title.bubble:Bubble Sort`, isHover: false },
         { title: $localize`:@@home.page.func.part.title.bucket:Bucket Sort`, isHover: false },

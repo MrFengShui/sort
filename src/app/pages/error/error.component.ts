@@ -4,4 +4,4 @@ import { Component } from "@angular/core";
     selector: 'ngx-error-page',
     templateUrl: './error.component.html'
 })
-export class AppErrorPageComponent {}
+export class NGXErrorPageComponent { }

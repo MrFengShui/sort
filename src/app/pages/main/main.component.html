@@ -1,24 +1,68 @@
 <p-toolbar styleClass="main-page-header h-5rem">
     <ng-template #start>
-        <p-button severity="secondary" size="small">
-            <ng-template pTemplate="icon"><i class="pi pi-bars text-3xl"></i></ng-template>
-        </p-button>
+        <a [routerLink]="['/home']" class="logo-container">
+            <p-image [src]="'assets/images/angular_wordmark_' + (isDarkMode ? 'white' : 'black') + '.png'" alt="logo"
+                loading="lazy" imageClass="h-3rem"></p-image>
+        </a>
     </ng-template>
     <ng-template #end>
-        <p-button rounded severity="secondary" size="small" (click)="drawerVisible = true">
-            <ng-template pTemplate="icon"><i class="pi pi-spin pi-cog text-3xl"></i></ng-template>
-        </p-button>
+        <div class="flex gap-3">
+            <p-button rounded severity="secondary" size="small" [pTooltip]="I18N_MAIN_TOOLTIP_SCROLL_TO_TOP"
+                tooltipPosition="bottom" [showDelay]="1000" [hideDelay]="1000" (click)="handleScrollToTopEvent()">
+                <ng-template pTemplate="icon"><i class="pi pi-arrow-circle-up text-3xl"></i></ng-template>
+            </p-button>
+            <p-button rounded severity="secondary" size="small" [pTooltip]="I18N_MAIN_TOOLTIP_PREFERENCE"
+                tooltipPosition="bottom" [showDelay]="1000" [hideDelay]="1000" (click)="drawerVisible = true">
+                <ng-template pTemplate="icon"><i class="pi pi-spin pi-cog text-3xl"></i></ng-template>
+            </p-button>
+        </div>
     </ng-template>
 </p-toolbar>
-<router-outlet></router-outlet>
+<p-splitter [gutterSize]="2" [panelSizes]="[15, 85]" class="main-page-splitter" panelStyleClass="splitter-container"
+    styleClass="h-full">
+    <ng-template pTemplate="panel">
+        <p-scrollpanel class="w-full h-full" styleClass="w-full h-full">
+            <ng-template pTemplate="content">
+                <p-tree [value]="nodes" class="w-full" styleClass="menu-tree {{ nodes.length === 0 ? 'h-full' : '' }}">
+                    <ng-template pTemplate="default" let-node>
+                        <p-button [label]="node.label" [severity]="matchNodeByKey(node) ? 'primary' : 'secondary'"
+                            variant="text" styleClass="white-space-nowrap"
+                            (click)="handleTreeNodeEvent(node)"></p-button>
+                    </ng-template>
+                    <ng-template pTemplate="empty">
+                        <div class="flex flex-column justify-content-center align-items-center gap-3 w-full h-full">
+                            <i class="pi pi-box text-6xl"></i>
+                            <span class="font-bold">{{ I18N_MAIN_MENU_EMPTY_MESSAGE }}</span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="togglericon" let-node>
+                        @if (node) {
+                        <i class="pi pi-minus-circle text-xl"></i>
+                        } @else {
+                        <i class="pi pi-plus-circle text-xl"></i>
+                        }
+                    </ng-template>
+                </p-tree>
+            </ng-template>
+        </p-scrollpanel>
+    </ng-template>
+    <ng-template pTemplate="panel">
+        <p-scrollpanel class="w-full h-full" styleClass="w-full h-full" #outletScrollPanel>
+            <ng-template pTemplate="content">
+                <router-outlet></router-outlet>
+            </ng-template>
+        </p-scrollpanel>
+    </ng-template>
+</p-splitter>
 <p-drawer blockScroll [closable]="false" [dismissible]="false" position="right"
     transitionOptions="1250ms cubic-bezier(0.60, 0.00, 0.40, 1.00)" [(visible)]="drawerVisible"
-    styleClass="main-page-drawer p-3">
+    styleClass="main-page-drawer p-3" (onShow)="detectPreferenceDrawerShow()">
     <ng-template pTemplate="headless">
         <div class="flex flex-column gap-3">
             <div class="flex align-items-center gap-3">
                 <span class="flex-auto text-2xl font-bold">{{ I18N_MAIN_DRAWER_TITLE }}</span>
-                <p-button rounded severity="secondary" size="small" variant="text" (click)="drawerVisible = false">
+                <p-button rounded severity="secondary" size="small" variant="text" [pTooltip]="I18N_MAIN_TOOLTIP_CLOSE"
+                    tooltipPosition="bottom" [showDelay]="1000" [hideDelay]="1000" (click)="drawerVisible = false">
                     <ng-template pTemplate="icon"><i class="pi pi-times text-xl"></i></ng-template>
                 </p-button>
             </div>
@@ -88,3 +132,8 @@
         </div>
     </ng-template>
 </p-drawer>
+<p-toast position="bottom-center">
+    <ng-template pTemplate="headless" let-message>
+        <p-message [icon]="message.icon" [severity]="message.severity" [text]="message.text"></p-message>
+    </ng-template>
+</p-toast>

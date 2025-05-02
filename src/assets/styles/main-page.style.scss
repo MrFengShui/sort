@@ -1,6 +1,26 @@
 .ngx-main-page {
-    .main-page-header {
+    .main-page-splitter {
+        height: calc(100% - 5rem);
 
+        > .p-splitter {
+            > .splitter-container {
+                &:first-child {
+                    min-width: max(15%, 16rem);
+                    max-width: max(20%, 24rem);
+                }
+            }
+        }
+
+        .menu-tree {
+            --p-tree-indent: 0.5rem;
+            --p-tree-padding: 0 1rem 0 0;
+
+            width: fit-content;
+
+            .p-tree-empty-message {
+                height: 100%;
+            }
+        }
     }
 }
 
@@ -9,3 +29,4 @@
 
     width: 40rem !important;
 }
+

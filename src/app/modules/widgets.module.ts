@@ -1,18 +1,30 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { AppDashboardWidgetComponent } from "../widgets/dashboard/dashboard.component";
-import { AppWorkspaceWidgetComponent } from "../widgets/workspace/workspace.component";
+import { NGXShareModule } from "./share.module";
+
+import { NGXDashboardWidgetComponent } from "../widgets/dashboard/dashboard.component";
+import { NGXDataViewWidgetComponent } from "../widgets/dataview/dataview.component";
+import { NGXPlaygroundWidgetComponent } from "../widgets/playground/playground.component";
+import { NGXOverviewWidgetComponent } from "../widgets/overview/overview.component";
 
 @NgModule({
     declarations: [
-        AppDashboardWidgetComponent,
-        AppWorkspaceWidgetComponent
+        NGXDashboardWidgetComponent,
+        NGXDataViewWidgetComponent,
+        NGXOverviewWidgetComponent,
+        NGXPlaygroundWidgetComponent
     ],
-    imports: [ CommonModule ],
+    imports: [
+        CommonModule,
+
+        NGXShareModule
+    ],
     exports: [
-        AppDashboardWidgetComponent,
-        AppWorkspaceWidgetComponent
+        NGXDashboardWidgetComponent,
+        NGXDataViewWidgetComponent,
+        NGXOverviewWidgetComponent,
+        NGXPlaygroundWidgetComponent
     ]
 })
-export class AppWidgetsModule {}
+export class NGXWidgetsModule { }

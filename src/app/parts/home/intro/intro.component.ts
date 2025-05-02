@@ -1,9 +1,13 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Renderer2 } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { TreeNode } from "primeng/api";
 
 import { addClassSelectors } from "../../../share/selector.utils";
 
 import { UniversalMetainfoModel } from "../../../models/metainfo.model";
+import { PathParamModel } from "../../../models/config.model";
+
+import { _MAIN_PAGE_MENU_LIST_ } from "../../../data/menu.data";
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -79,7 +83,13 @@ export class NGXHomeIntroPartComponent {
     }
 
     protected handleGetStartedEvent(): void {
-        this._router.navigate(['/main'], { relativeTo: this._route });
+        const node: TreeNode<PathParamModel<string>> = _MAIN_PAGE_MENU_LIST_[0];
+
+        if (node.data && node.key)
+            this._router.navigate(node.data.path, {
+                relativeTo: this._route,
+                queryParams: { key: window.btoa(node.key) }
+            });
     }
 
 }

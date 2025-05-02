@@ -5,7 +5,7 @@ import { Observable, Subscription, filter, interval, map } from "rxjs";
 
 import moment from 'moment';
 
-import { AppLocaleConfigListener, AppStyleConfigListener } from "../../interfaces/config.interface";
+import { NGXLocaleConfigListener, NGXStyleConfigListener } from "../../interfaces/config.interface";
 
 import { addClassSelectors } from "../../share/selector.utils";
 import { assignHrefLink, APP_URL_HASH } from "../../share/location.utils";
@@ -23,7 +23,7 @@ import { NGXLocaleConfigLoadDoneAction } from "../../store/locale.action";
     selector: 'ngx-home-page',
     templateUrl: './home.component.html'
 })
-export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigListener, AppStyleConfigListener {
+export class NGXHomePageComponent implements OnInit, OnDestroy, NGXLocaleConfigListener, NGXStyleConfigListener {
 
     protected readonly I18N_FOOT_COPYRIGHT: string = $localize`:@@home.page.foot.copyright:Copyright All Reserved`;
     protected readonly I18N_FOOT_TECHNIQUE: string = $localize`:@@home.page.foot.technique:Technology Supported by Angular and PrimeNG`;
@@ -52,7 +52,7 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
     protected readonly githubHrefLink: string = 'https://github.com/MrFengShui/sort';
     protected readonly primengHrefLink: string = 'https://primeng.org/';
 
-    protected logoHrefLink: string = '';
+    protected isDarkMode: boolean = false;
     protected localeOption: LocaleName | string = '';
     protected localeOptions: SelectorOptionModel<LocaleName | string>[] = [
         { label: this.I18N_HEAD_LOCALE_EN, value: 'en-US' },
@@ -125,13 +125,14 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, AppLocaleConfigL
                 .subscribe(state =>
                     this._zone.run(() => {
                         const model: StyleConfigModel = state.result as StyleConfigModel;
+                        this.isDarkMode = Boolean(model.darkMode);
 
                         if (this.styleConfig) {
                             this.styleConfig.color = model.color;
                             this.styleConfig.darkMode = model.darkMode;
                             this.styleConfig.theme = model.theme;
                         } else
-                            this.styleConfig = { color: model.color, darkMode: model.darkMode, theme: model.theme };
+                            this.styleConfig = { color: model.color, darkMode: Boolean(model.darkMode), theme: model.theme };
                     }));
         });
     }
