@@ -141,6 +141,10 @@ export class NGXHomePageComponent implements OnInit, OnDestroy, NGXLocaleConfigL
         window.location.replace(assignHrefLink(value, APP_URL_HASH));
     }
 
+    protected handleGoToLoginEvent(): void {
+        this._router.navigate(['/login']);
+    }
+
     protected listenStyleColorChange(name: StyleColorName): void {
         if (this.styleConfig)
             this._store.dispatch(NGXStyleConfigSaveAction({

@@ -1,0 +1,80 @@
+<p-card class="w-6 z-1">
+    <ng-template pTemplate="header">
+        <p-image src="assets/images/angular_wordmark_gradient.png" alt="logo" width="100%"></p-image>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="flex gap-3">
+            <p-button fluid [label]="I18N_LABEL_TELL_ME" outlined severity="secondary" class="flex-auto"
+                (click)="handleInfoTellMeEvent()"></p-button>
+            <p-button fluid [label]="I18N_LABEL_SIGN_IN" class="flex-auto" (click)="handleUserSignInEvent()"></p-button>
+        </div>
+    </ng-template>
+    <form [formGroup]="group" class="formgrid grid gap-3">
+        <div class="field col-12">
+            <p-inputgroup>
+                <p-inputgroup-addon>
+                    <i class="pi pi-user text-xl"></i>
+                </p-inputgroup-addon>
+                <p-iftalabel>
+                    <input type="text" [placeholder]="I18N_USERNAME_PLACEHOLDER" pInputText
+                        formControlName="usernameControl" class="w-full">
+                    <label>{{ I18N_USERNAME_LABEL }}</label>
+                </p-iftalabel>
+            </p-inputgroup>
+        </div>
+        <div class="field col-12">
+            <p-inputgroup>
+                <p-inputgroup-addon>
+                    <i class="pi pi-lock text-xl"></i>
+                </p-inputgroup-addon>
+                <p-iftalabel>
+                    <input autocomplete="off" type="password" [placeholder]="I18N_PASSWORD_PLACEHOLDER" pInputText
+                        formControlName="passwordControl" class="w-full">
+                    <label>{{ I18N_PASSWORD_LABEL }}</label>
+                </p-iftalabel>
+            </p-inputgroup>
+        </div>
+    </form>
+</p-card>
+<p-toast [key]="toastKey" position="top-center" styleClass="login-page-toast w-30rem">
+    <ng-template pTemplate="headless" let-message>
+        <div class="grid gap-1 p-3">
+            <div class="col inline-flex align-items-center">
+                <span class="text-lg">{{ message.summary }}</span>
+            </div>
+            <div class="col-auto">
+                <p-button icon="pi pi-times" rounded severity="secondary" size="small" variant="text"></p-button>
+            </div>
+            <div class="col-12">
+                <p-inputgroup>
+                    <p-inputgroup-addon>
+                        <i class="pi pi-user"></i>
+                    </p-inputgroup-addon>
+                    <input readonly type="text" [ngModel]="message.data.username" pInputText pSize="small"
+                        #usernameClipboardInput />
+                    <p-inputgroup-addon>
+                        <p-button icon="pi pi-clipboard" severity="secondary"
+                            (click)="handleCopyInputTextEvent(usernameClipboardInput.value)"></p-button>
+                    </p-inputgroup-addon>
+                </p-inputgroup>
+            </div>
+            <div class="col-12">
+                <p-inputgroup>
+                    <p-inputgroup-addon>
+                        <i class="pi pi-lock"></i>
+                    </p-inputgroup-addon>
+                    <input readonly type="text" [ngModel]="message.data.password" pInputText pSize="small"
+                        #passwordClipboardInput />
+                    <p-inputgroup-addon>
+                        <p-button icon="pi pi-clipboard" severity="secondary"
+                            (click)="handleCopyInputTextEvent(passwordClipboardInput.value)"></p-button>
+                    </p-inputgroup-addon>
+                </p-inputgroup>
+            </div>
+            <div class="col-12">
+                <p-message size="small">{{ message.detail }}</p-message>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+<canvas class="absolute z-0" #canvas></canvas>

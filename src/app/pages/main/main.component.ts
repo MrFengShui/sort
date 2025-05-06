@@ -11,7 +11,7 @@ import { assignHrefLink, APP_URL_HASH } from "../../share/location.utils";
 import { StyleColorName, StyleConfigModel, StyleThemeName } from "../../models/style.model";
 import { SelectorOptionModel } from "../../models/option.model";
 import { LocaleConfigModel, LocaleName } from "../../models/locale.model";
-import { PathParamModel } from "../../models/config.model";
+import { PathParamModel } from "../../models/tree.model";
 
 import { NGXLocaleConfigListener, NGXStyleConfigListener } from "../../interfaces/config.interface";
 

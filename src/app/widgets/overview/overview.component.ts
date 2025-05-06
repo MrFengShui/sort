@@ -4,7 +4,7 @@ import { TreeNode } from "primeng/api";
 import { addClassSelectors } from "../../share/selector.utils";
 import { findAllNodesByKey } from "../../share/tree.utils";
 
-import { PathParamModel } from "../../models/config.model";
+import { PathParamModel } from "../../models/tree.model";
 
 import { _MAIN_PAGE_MENU_LIST_ } from "../../data/menu.data";
 

@@ -1,0 +1,16 @@
+<p-card class="w-6 z-1">
+    <ng-template pTemplate="header">
+        <p-image src="assets/images/angular_wordmark_gradient.png" alt="logo" width="100%"></p-image>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button fluid [label]="I18N_LABEL_BUTTON" class="w-full" (click)="handleGoToHomePageEvent()"></p-button>
+    </ng-template>
+    <ng-template pTemplate="title">
+        <span class="text-6xl font-bold">{{ I18N_TITLE }}</span>
+    </ng-template>
+    <ng-template pTemplate="subtitle">
+        <span class="text-xl font-semibold">{{ I18N_SUBTITLE }}</span>
+    </ng-template>
+    <p-message severity="error" styleClass="my-4">{{ I18N_MESSAGE }}</p-message>
+</p-card>
+<canvas class="absolute z-0" #canvas></canvas>

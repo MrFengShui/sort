@@ -35,13 +35,12 @@
             <ng-template #end>
                 <div class="flex gap-3">
                     <a [href]="githubHrefLink" target="_blank" pButton severity="contrast" size="small" rounded text
-                        pTooltip="{{ I18N_TOOLTIP_GITHUB }}" [showDelay]="1000" [hideDelay]="1000"
-                        tooltipPosition="bottom">
+                        [pTooltip]="I18N_TOOLTIP_GITHUB" [showDelay]="1000" [hideDelay]="1000" tooltipPosition="bottom">
                         <i class="pi pi-github text-2xl"></i>
                     </a>
                     <p-button outlined severity="contrast" size="small" rounded text
-                        pTooltip="{{ I18N_TOOLTIP_USER_LOGIN }}" [showDelay]="1000" [hideDelay]="1000"
-                        tooltipPosition="bottom">
+                        [pTooltip]="I18N_TOOLTIP_USER_LOGIN" [showDelay]="1000" [hideDelay]="1000"
+                        tooltipPosition="bottom" (click)="handleGoToLoginEvent()">
                         <i class="pi pi-user text-2xl"></i>
                     </p-button>
                 </div>

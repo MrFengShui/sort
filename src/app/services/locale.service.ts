@@ -10,14 +10,14 @@ import { LocaleConfigModel } from "../models/locale.model";
 })
 export class NGXLocaleConfigService {
 
-    private readonly APP_LOCALE_CONFIG_NAME: string = 'locale_config';
+    private readonly NGX_LOCALE_CONFIG_NAME: string = 'locale_config';
 
     public saveLocaleConfig(config: LocaleConfigModel): Observable<boolean> {
-        return from(saveToLocalStorage(this.APP_LOCALE_CONFIG_NAME, JSON.stringify(config)));
+        return from(saveToLocalStorage(this.NGX_LOCALE_CONFIG_NAME, JSON.stringify(config)));
     }
 
     public loadLocaleConfig(): Observable<LocaleConfigModel | null> {
-        return from(loadFromLocalStorage(this.APP_LOCALE_CONFIG_NAME))
+        return from(loadFromLocalStorage(this.NGX_LOCALE_CONFIG_NAME))
             .pipe(map(value => value ? JSON.parse(value) : null));
     }
 

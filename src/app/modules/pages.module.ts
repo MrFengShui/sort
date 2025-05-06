@@ -9,6 +9,8 @@ import { provideStore, StoreModule } from "@ngrx/store";
 import { AppPartModule } from "./parts.module";
 import { NGXShareModule } from "./share.module";
 
+import { NGXAuthTokenGenerationAndVerificationService, NGXAuthUserInfoService } from "../services/auth.service";
+
 import { NGXErrorPageComponent } from "../pages/error/error.component";
 import { NGXHomePageComponent } from "../pages/home/home.component";
 import { NGXLoginPageComponent } from "../pages/login/login.component";
@@ -22,10 +24,9 @@ import { NGXStyleConfigEffect } from "../store/style.effect";
 import { NGXStyleConfigReducer } from "../store/style.reducer";
 import { NGX_STYLE_FEATURE_KEY } from "../store/style.selector";
 
-import { NGXConfigurationEffect } from './../store/config.effect';
-import { NGXConfigurationReducer } from "../store/config.reducer";
-import { NGX_CONFIGURATION_KEY } from "../store/config.selector";
-import { NGXConfigurationContentService } from "../services/config.service";
+import { NGXAuthUserInfoEffect } from '../store/auth.effect';
+import { NGXAuthUserInfoReducer } from "../store/auth.reducer";
+import { NGX_AUTH_USER_INFO_KEY } from "../store/auth.selector";
 
 @NgModule({
     declarations: [
@@ -41,7 +42,7 @@ import { NGXConfigurationContentService } from "../services/config.service";
         RouterModule,
         StoreModule.forFeature(NGX_LOCALE_FEATURE_KEY, { 'feature': NGXLocaleConfigReducer }),
         StoreModule.forFeature(NGX_STYLE_FEATURE_KEY, { 'feature': NGXStyleConfigReducer }),
-        StoreModule.forFeature(NGX_CONFIGURATION_KEY, { 'feature': NGXConfigurationReducer }),
+        StoreModule.forFeature(NGX_AUTH_USER_INFO_KEY, { 'feature': NGXAuthUserInfoReducer }),
 
         AppPartModule,
         NGXShareModule
@@ -53,10 +54,10 @@ import { NGXConfigurationContentService } from "../services/config.service";
         NGXMainPageComponent
     ],
     providers: [
-        NGXConfigurationContentService,
+        NGXAuthUserInfoService, NGXAuthTokenGenerationAndVerificationService,
 
         provideHttpClient(withJsonpSupport()),
-        provideEffects(NGXLocaleConfigEffect, NGXStyleConfigEffect, NGXConfigurationEffect),
+        provideEffects(NGXLocaleConfigEffect, NGXStyleConfigEffect, NGXAuthUserInfoEffect),
         provideStore(),
     ]
 })

@@ -8,8 +8,15 @@ import { CarouselModule } from 'primeng/carousel';
 import { DividerModule } from 'primeng/divider';
 import { DrawerModule } from 'primeng/drawer';
 import { FieldsetModule } from 'primeng/fieldset';
+import { FluidModule } from 'primeng/fluid';
 import { GalleriaModule } from 'primeng/galleria';
+import { IconFieldModule } from 'primeng/iconfield';
+import { IftaLabelModule } from 'primeng/iftalabel';
 import { ImageModule } from 'primeng/image';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
 import { PanelModule } from 'primeng/panel';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -26,6 +33,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
 import { TreeModule } from 'primeng/tree';
 
+import { MessageService } from "primeng/api";
+
 @NgModule({
     imports: [
         ButtonModule,
@@ -35,8 +44,15 @@ import { TreeModule } from 'primeng/tree';
         DividerModule,
         DrawerModule,
         FieldsetModule,
+        FluidModule,
         GalleriaModule,
+        IconFieldModule,
+        IftaLabelModule,
         ImageModule,
+        InputIconModule,
+        InputGroupModule,
+        InputGroupAddonModule,
+        InputTextModule,
         MessageModule,
         PanelModule,
         RadioButtonModule,
@@ -61,8 +77,15 @@ import { TreeModule } from 'primeng/tree';
         DividerModule,
         DrawerModule,
         FieldsetModule,
+        FluidModule,
         GalleriaModule,
+        IconFieldModule,
+        IftaLabelModule,
         ImageModule,
+        InputIconModule,
+        InputGroupModule,
+        InputGroupAddonModule,
+        InputTextModule,
         MessageModule,
         PanelModule,
         RadioButtonModule,
@@ -80,6 +103,8 @@ import { TreeModule } from 'primeng/tree';
         TreeModule
     ],
     providers: [
+        MessageService,
+
         {
             provide: IMAGE_CONFIG,
             useValue: {

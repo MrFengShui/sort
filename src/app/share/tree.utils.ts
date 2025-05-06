@@ -1,6 +1,6 @@
 import { TreeNode } from "primeng/api";
 
-import { PathParamModel } from "../models/config.model";
+import { PathParamModel } from "../models/tree.model";
 
 /**
  *

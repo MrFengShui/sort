@@ -3,7 +3,9 @@
 @use "primeflex/primeflex.css";
 @use "tailwindcss";
 
+@import url(styles/error-page.style.scss);
 @import url(styles/home-page.style.scss);
+@import url(styles/login-page.style.scss);
 @import url(styles/main-page.style.scss);
 
 * {

@@ -1,6 +1,6 @@
 import { TreeNode } from "primeng/api";
 
-import { PathParamModel } from "../models/config.model";
+import { PathParamModel } from "../models/tree.model";
 
 export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
     {
@@ -60,7 +60,7 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                             },
                             {
                                 key: '3-1-1-13',
-                                label: $localize`:@@main.page.menu.list.3_1_1_13:ShakerBubble Sort`,
+                                label: $localize`:@@main.page.menu.list.3_1_1_13:Shaker Bubble Sort`,
                                 data: {
                                     path: ['/main', 'playground'],
                                     param: 'shaker_bubble_sort'
@@ -352,26 +352,26 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                             },
                             {
                                 key: '3-2-1-2',
-                                label: $localize`:@@main.page.menu.list.3_2_1_2:Bucket Sort (In-Place)`,
+                                label: $localize`:@@main.page.menu.list.3_2_1_2:In-Place Bucket Sort`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'bucket_sort_inplace'
+                                    param: 'in_place_bucket_sort'
                                 }
                             },
                             {
                                 key: '3-2-1-3',
-                                label: $localize`:@@main.page.menu.list.3_2_1_3:Slots Bucket Sort (Recursive)`,
+                                label: $localize`:@@main.page.menu.list.3_2_1_3:Three-Slot Bucket Sort (Recursive)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'slots_bucket_sort_recursive'
+                                    param: 'three_slots_bucket_sort_recursive'
                                 }
                             },
                             {
                                 key: '3-2-1-4',
-                                label: $localize`:@@main.page.menu.list.3_2_1_4:Slots Bucket Sort (Iterative)`,
+                                label: $localize`:@@main.page.menu.list.3_2_1_4:Three-Slot Bucket Sort (Iterative)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'slots_bucket_sort_iterative'
+                                    param: 'three_slots_bucket_sort_iterative'
                                 }
                             }
                         ]
@@ -390,10 +390,10 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                             },
                             {
                                 key: '3-2-2-2',
-                                label: $localize`:@@main.page.menu.list.3_2_2_2:LSD Radix Sort (In-Place)`,
+                                label: $localize`:@@main.page.menu.list.3_2_2_2:In-Place LSD Radix Sort`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'lsd_radix_sort_inplace'
+                                    param: 'in_place_lsd_radix_sort'
                                 }
                             },
                             {
@@ -414,48 +414,48 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                             },
                             {
                                 key: '3-2-2-5',
-                                label: $localize`:@@main.page.menu.list.3_2_2_5:MSD Radix Sort (In-Place)`,
+                                label: $localize`:@@main.page.menu.list.3_2_2_5:In-Place MSD Radix Sort`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'msd_radix_sort_inplace'
+                                    param: 'in_place_msd_radix_sort'
                                 }
                             }
                         ]
                     },
                     {
                         key: '3-2-3',
-                        label: $localize`:@@main.page.menu.list.3_2_2:Merge-Style Sorting`,
+                        label: $localize`:@@main.page.menu.list.3_2_3:Merge-Style Sorting`,
                         children: [
                             {
                                 key: '3-2-3-11',
-                                label: $localize`:@@main.page.menu.list.3_2_3_11:Merge Sort (Recursive)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_11:Merge Sort (Top-Down)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'merge_sort_recursive'
+                                    param: 'merge_sort_top_down'
                                 }
                             },
                             {
                                 key: '3-2-3-12',
-                                label: $localize`:@@main.page.menu.list.3_2_3_12:Merge Sort (Iterative)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_12:Merge Sort (Bottom-Up)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'merge_sort_iterative'
+                                    param: 'merge_sort_bottom_up'
                                 }
                             },
                             {
                                 key: '3-2-3-13',
-                                label: $localize`:@@main.page.menu.list.3_2_3_13:In-Place Merge Sort (Recursive)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_13:In-Place Merge Sort (Top-Down)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'in_place_merge_sort_recursive'
+                                    param: 'in_place_merge_sort_top_down'
                                 }
                             },
                             {
                                 key: '3-2-3-14',
-                                label: $localize`:@@main.page.menu.list.3_2_3_14:In-Place Merge Sort (Iterative)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_14:In-Place Merge Sort (Bottom-Up)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'in_place_merge_sort_iterative'
+                                    param: 'in_place_merge_sort_bottom_up'
                                 }
                             },
                             {
@@ -468,73 +468,73 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                             },
                             {
                                 key: '3-2-3-31',
-                                label: $localize`:@@main.page.menu.list.3_2_3_31:Weave Merge Sort (Recursive)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_31:Weave Merge Sort (Top-Down)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'weave_merge_sort_recursive'
+                                    param: 'weave_merge_sort_top_down'
                                 }
                             },
                             {
                                 key: '3-2-3-32',
-                                label: $localize`:@@main.page.menu.list.3_2_3_32:Weave Merge Sort (Iterative)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_32:Weave Merge Sort (Bottom-Up)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'weave_merge_sort_iterative'
+                                    param: 'weave_merge_sort_bottom_up'
                                 }
                             },
                             {
                                 key: '3-2-3-33',
-                                label: $localize`:@@main.page.menu.list.3_2_3_33:In-Place Weave Merge Sort (Recursive)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_33:In-Place Weave Merge Sort (Top-Down)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'in_place_weave_merge_sort_recursive'
+                                    param: 'in_place_weave_merge_sort_top_down'
                                 }
                             },
                             {
                                 key: '3-2-3-34',
-                                label: $localize`:@@main.page.menu.list.3_2_3_34:In-Place Weave Merge Sort (Iterative)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_34:In-Place Weave Merge Sort (Bottom-Up)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'in_place_weave_merge_sort_iterative'
+                                    param: 'in_place_weave_merge_sort_bottom_up'
                                 }
                             },
                             {
                                 key: '3-2-3-41',
-                                label: $localize`:@@main.page.menu.list.3_2_3_41:Bubble Merge Sort (Recursive)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_41:Bubble Merge Sort (Top-Down)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'bubble_merge_sort_recursive'
+                                    param: 'bubble_merge_sort_top_down'
                                 }
                             },
                             {
                                 key: '3-2-3-42',
-                                label: $localize`:@@main.page.menu.list.3_2_3_42:Bubble Merge Sort`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_42:Bubble Merge Sort (Bottom-Up)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'bubble_merge_sort_iterative'
+                                    param: 'bubble_merge_sort_bottom_up'
                                 }
                             },
                             {
                                 key: '3-2-3-51',
-                                label: $localize`:@@main.page.menu.list.3_2_3_51:Comb Merge Sort (Recursive)`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_51:Comb Merge Sort (Top-Down)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'comb_merge_sort_recursive'
+                                    param: 'comb_merge_sort_top_down'
                                 }
                             },
                             {
                                 key: '3-2-3-52',
-                                label: $localize`:@@main.page.menu.list.3_2_3_52:Comb Merge Sort`,
+                                label: $localize`:@@main.page.menu.list.3_2_3_52:Comb Merge Sort (Bottom-Up)`,
                                 data: {
                                     path: ['/main', 'playground'],
-                                    param: 'comb_merge_sort_iterative'
+                                    param: 'comb_merge_sort_bottom_up'
                                 }
                             }
                         ]
                     },
                     {
                         key: '3-2-4',
-                        label: $localize`:@@main.page.menu.list.3_2_4:Bisection-Style Sort (Recursive)`,
+                        label: $localize`:@@main.page.menu.list.3_2_4:Bisection-Style Sort`,
                         children: [
                             {
                                 key: '3-2-4-1',
@@ -719,27 +719,27 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                         }
                     },
                     {
-                        key: '3-4-31',
-                        label: $localize`:@@main.page.menu.list.3_4_31:Shear Sort`,
+                        key: '3-4-41',
+                        label: $localize`:@@main.page.menu.list.3_4_41:Shear Sort`,
                         data: {
                             path: ['/main', 'playground'],
                             param: 'shear_sort'
                         }
                     },
                     {
-                        key: '3-4-32',
-                        label: $localize`:@@main.page.menu.list.3_4_32:Shear Sort (Insertion)`,
+                        key: '3-4-42',
+                        label: $localize`:@@main.page.menu.list.3_4_42:Insertion Shear Sort`,
                         data: {
                             path: ['/main', 'playground'],
-                            param: 'shear_sort_insertion'
+                            param: 'insertion_shear_sort'
                         }
                     },
                     {
-                        key: '3-4-33',
-                        label: $localize`:@@main.page.menu.list.3_4_33:Shear Sort (Selection)`,
+                        key: '3-4-43',
+                        label: $localize`:@@main.page.menu.list.3_4_43:Selection Shear Sort`,
                         data: {
                             path: ['/main', 'playground'],
-                            param: 'shear_sort_selection'
+                            param: 'selection_shear_sort'
                         }
                     }
                 ]
@@ -844,7 +844,7 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                     },
                     {
                         key: '3-5-41',
-                        label: $localize`:@@main.page.menu.list.3_5_51:Pancake Sort`,
+                        label: $localize`:@@main.page.menu.list.3_5_41:Pancake Sort`,
                         data: {
                             path: ['/main', 'playground'],
                             param: 'pancake_sort'
@@ -852,7 +852,7 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                     },
                     {
                         key: '3-5-42',
-                        label: $localize`:@@main.page.menu.list.3_5_32:Shaker Pancake Sort`,
+                        label: $localize`:@@main.page.menu.list.3_5_42:Shaker Pancake Sort`,
                         data: {
                             path: ['/main', 'playground'],
                             param: 'shaker_pancake_sort'
@@ -908,7 +908,7 @@ export const _MAIN_PAGE_MENU_LIST_: TreeNode<PathParamModel<string>>[] = [
                     },
                     {
                         key: '3-5-92',
-                        label: $localize`:@@main.page.menu.list.3_5_81:In-Place Stalin Sort`,
+                        label: $localize`:@@main.page.menu.list.3_5_92:In-Place Stalin Sort`,
                         data: {
                             path: ['/main', 'playground'],
                             param: 'in_place_stalin_sort'
